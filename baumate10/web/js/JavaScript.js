@@ -32,7 +32,7 @@
             'error':error,
             'success': function(data) {
                 if(data==0){
-                        alertify.error("<b>Error-usuario no registrado:</b><br><input> Por favor verifique sus datos o comuniquese con el administrador.");
+                        alertify.error("<b>Error-usuario no registrado:</b><br>Por favor verifique sus datos o comuniquese con el administrador.");
                 }else if (data==3){
                     alertify.error("Error-usuario Incativo: El usuario se encunetra incativo, por favor comuniquese con el administrador.");
                 }else if (data==1){

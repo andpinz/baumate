@@ -20,9 +20,9 @@
          <div id="Cinl">
                         <img src="imagenes/logo.png" id="l">
                         </div>
-          <label class="rol" id="rol"></label>
                         <input type="button" value="?" id="ayuda" onclick="window.open('Archivos/ManualUsuario.pdf')">
                         <input type="button" value="Cerrar Sesion" id="cerrarSesion">
+          <label class="rol" id="rol"></label>
                         <div id='cssmenu'>
             <ul>
                 <li class='active'><a id="inicio" href='administrador.jsp'><span>Inicio</span></a></li>
