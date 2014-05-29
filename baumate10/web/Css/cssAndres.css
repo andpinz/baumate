@@ -1,0 +1,196 @@
+body {
+  margin: 30px;
+  font: 14px Tahoma, sans-serif
+}
+table{
+    border-collapse: collapse;
+    width: 40em;
+  margin: 0 auto;
+  padding: 10px 20px;
+  overflow: auto;
+  color: #3e4a49;
+  background-color: #FBE080;
+  border-radius: 10px;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  
+  background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#d6cf08), color-stop(1, #C0C0C0) );
+  background: -moz-linear-gradient( center bottom, #FBE080 0%, #C0C0C0 100% );  
+    
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;  
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+form {
+  width: 35em;
+  margin: 0 auto;
+  padding: 50px 60px;
+  overflow: auto;
+  color: #3e4a49;
+  background-color: #FBE080;
+  border-radius: 10px;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  
+  background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#FBE080), color-stop(1, #C0C0C0) );
+  background: -moz-linear-gradient( center bottom, #FBE080 0%, #C0C0C0 100% );  
+    
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;  
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+table td {
+    border-style: solid;
+    border-bottom-right-radius: calc;
+     box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+     text-align: center;
+     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: .9em;
+  height: 3em;
+}
+
+table ul li {
+  margin: .9em 0 0 0;
+  padding: 0;
+}
+
+table * {
+  line-height: 1em;
+}
+
+table h3 {
+  margin: 0 0 1.5em 0;
+  padding: 0;
+  text-align: center;
+}
+
+fieldset {
+  padding: 0 20px 20px;
+  margin: 0 0 30px;
+  border: 2px solid #593131;
+  background: #FAFF9E;
+  border-radius: 10px;
+  
+  background: -webkit-gradient( linear, left bottom, left top, color-stop(0,#C0C0C0), color-stop(1, #FBE080) );
+  background: -moz-linear-gradient( center bottom, #C0C0C0 0%, #FBE080 100% );  
+  
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+}
+
+legend {
+  color: #000;
+  background: #FFE98C;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px;
+  margin: 0;
+  width: 9em;
+  border: 2px solid #593131;
+  border-radius: 50% 35%;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  
+  -moz-border-radius: 50% 35%;
+  -webkit-border-radius: 50% 35%;
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+label {
+  display: block;
+  float: left;
+  clear: left;
+  text-align: right;
+  width: 40%;
+  padding: .4em 0 0 0;
+  margin: .15em .5em 0 0;
+}
+
+input, select, textarea {
+  display: block;
+  margin: 0;
+  padding: .4em;
+  width: 50%;
+}
+
+input, textarea, .date {
+  border: 2px solid #eae1c0;
+  border-radius: 5px;
+  box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  background: #fff;
+  
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;  
+  -moz-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+  -webkit-box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+}
+
+input {
+  font-size: .9em;
+}
+
+select {
+  padding: 0;
+  margin-bottom: 2.5em;
+  position: relative;
+  top: .7em;
+}
+
+textarea {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: .9em;
+  height: 5em;
+}
+
+form *:focus {
+  border: 2px solid #593131;
+  outline: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+
+
+// forma del boton
+
+
+input:valid, textarea:valid {
+  background: #efe;
+}
+
+input[type="button"] {
+  margin: 50px auto 0 auto;
+  width: 12em;
+  padding: 10px;
+  border: 2px solid #593131;
+  border-radius: 10px;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  color: #fff;
+  background: #593131;
+  font-size: 1.2em;
+  font-weight: bold;
+  
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;  
+  -webkit-appearance: none;
+}
+
+input[type="button"]:hover, input[type="button"]:active {
+  cursor: pointer;
+  background: #fff;
+  color: #593131;
+}
+
+input[type="button"]:active {
+  background: #eee;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+  
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8) inset;
+}

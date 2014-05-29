@@ -1,0 +1,44 @@
+#recuperarfoto {
+    text-align:center;
+			text-decoration: none;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      display:inline-block;
+			color: #FFF;
+			background: #7F8C8D;
+			padding: 15px 40px;
+			white-space: nowrap;
+			margin: 10px 5px;
+			-webkit-transition: all 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+                     background: #2ECC71;
+}
+#recuperarfoto:hover{
+  background: #32db78;
+}
+
+#recuperarfoto:active{
+  box-shadow: 0px 2px 0px 0px #27AE60;
+}
+#subirfoto {
+	 text-align:center;
+			text-decoration: none;
+      font-family: 'Helvetica Neue', Helvetica, sans-serif;
+      display:inline-block;
+			color: #FFF;
+			background: #7F8C8D;
+			padding: 15px 40px;
+			white-space: nowrap;
+			margin: 10px 5px;
+			-webkit-transition: all 0.2s ease-in-out;
+			-ms-transition: all 0.2s ease-in-out;
+			-moz-transition: all 0.2s ease-in-out;
+			-o-transition: all 0.2s ease-in-out;
+			transition: all 0.2s ease-in-out;
+                      background: #E67E22;
+}
+#subirfoto:hover{
+  background: #D35400;
+}

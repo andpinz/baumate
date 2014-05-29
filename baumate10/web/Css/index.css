@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/01/2014, 01:25:35 AM
+    Author     : DavidAndres
+*/
+body{ 
+background-image: url(fondo.png)  no-repeat center center fixed;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+#logo{
+background-repeat:no-repeat;
+background-position:left top;
+}
+#cabezera{
+margin-top: -3.4%;	
+background-color: rgba(127, 127, 127, 1);
+height: 20%;
+margin-right: auto;
+margin-left: auto;	
+}
+h1 {
+    text-align: center;
+    color: rgba(255, 255, 255, 1);
+    font-size: 200%;
+    font-family: sans-serif;
+    position: relative;
+}
+#contenedor{
+margin-top: 3%;	
+background-color: rgba(255, 255, 252, 1);
+-moz-box-shadow: 18px 13px 17px rgba(127, 127, 127, 1);
+-webkit-box-shadow: 18px 13px 17px rgba(127, 127, 127, 1);
+box-shadow: 18px 13px 17px rgba(127, 127, 127, 1);
+margin-right: auto;
+margin-left: auto;	
+border:solid 8px #000000;	
+width: 40%;
+height: 500px;
+}
+.correo{
+width: 70%;	
+margin-left: 15%;	
+margin-top: 15%;		
+font-size: 150%;
+font-family: sans-serif;	
+}
+.contrasena{	
+width: 70%;	
+margin-left: 15%;	
+margin-top: 5%;	
+font-size: 150%;
+font-family: sans-serif;
+}
+#pie{
+margin-top: 13.4%;	
+background-color: rgba(127, 127, 127, 1);
+height: 20%;
+margin-right: auto;
+margin-left: auto;	
+}
+.boton{
+margin-right: 5%;	
+font-size: 100%;
+font-family: sans-serif;
+margin-top: 4%;	
+height: 50%;
+width: 20%;
+float: right	
+}
