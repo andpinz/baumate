@@ -12,13 +12,13 @@
         var correo = $('#correo').val();
         var contrasena = $('#contrasena').val();
         if (correo==""&&contrasena=="") {
-            alert('Por favor introduzca un correo y contraseña para poder iniciar sesion'); 
+            alertify.log("Por favor introdusca un correo y contraseña para poder iniciar sesión."); 
             validacion=0;
                 }else if(contrasena==""){
-                    alert('Por favor introduzca una contraseña'); 
+                    alertify.log("Por favor introdusca una contraseña."); 
                     validacion=0;
                 }else if(correo==""){
-                    alert('Por favor introduzca un correo'); 
+                    alertify.log("Por favor introdusca un correo."); 
                     validacion=0;
                 }
                 if(validacion==1){
@@ -32,9 +32,9 @@
             'error':error,
             'success': function(data) {
                 if(data==0){
-                    alert('Datos incorrectos: Por favor verifique los datos');
+                        alertify.error("<b>Error-usuario no registrado:</b><br><input> Por favor verifique sus datos o comuniquese con el administrador.");
                 }else if (data==3){
-                    alert('Usuario Incativo: El usuario se encunetra incativo, por favor comuniquese con el administrador');
+                    alertify.error("Error-usuario Incativo: El usuario se encunetra incativo, por favor comuniquese con el administrador.");
                 }else if (data==1){
                     setTimeout("location.href='administrador.jsp'", 1000);
                 }else if (data==2){

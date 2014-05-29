@@ -9,24 +9,33 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Chequear Ordenes de Compra</title>
+                <link rel="stylesheet" type="text/css" href="Css/chequearordendecompra.css">
+          <jsp:include page="secretaria.jsp"></jsp:include>
+        <title>Baumate</title>
     </head>
     <body>
-        <form>
-        <div>
-        <h1>Chequear ordenes compra</h1>
-        
-          <p>Seleccione el proyecto con el que quiere verificar la orden de compra </p><select id="cboProyecto"></select><input type="button" id="btnBuscarId" value="...">
-        <br>
+                <div id="contenedor">
+            <div id="titulo">
+        <h1>Chequear Orden de Compra</h1>
+            </div>
+        <div id="tabla"> 
           <table id="tblSolicitudes"></table>
-             <table id="tblSolicitudesAsignadas"></table>
+            </table>
+        </div>
+            <div id="formulario">
+                <div id="formulariod">
+            <h4>Seleccione el proyecto con el que quiere verificar la orden de compra: </h4>
+          <input type="button" id="btnBuscarId" value="Buscar">  
+          <select id="cboProyecto"></select>
+                </div>
+            </div>
+            <div id="tabla">
+            <table id="tblSolicitudesAsignadas">
          <input type="button" id="btnCantidadrecibida" value="modificar"/>
          <input type="hidden" id="txtcontadorcajas"/>
          <input type="hidden" id="txtidsolicitud"/>
-                    </div>
-        </form>
-        <script type='text/javascript' src='js/JavaScriptAdministrador.js'></script>
+            </div>
+                </div>
         <script src="js/chequearordenescompra.js" type="text/javascript"></script>
     </body>
 </html>

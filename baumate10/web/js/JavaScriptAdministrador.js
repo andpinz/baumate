@@ -10,6 +10,8 @@ function seguridad(){
         'success':function(data){
             if(data==0){
                 setTimeout("location.href='index.jsp'", 0);
+            }else if(data==2){
+                setTimeout("location.href='secretaria.jsp'", 0);
             }else{
                 insertarRol();
             }
@@ -57,7 +59,8 @@ function Bloquear() {
 }
 
 function bloqueoUsuario(){
-        var contrasena = prompt ('Bloqueo de Seguridad: Por favor introduzca su contraseña','');  
+        var contrasena;
+        alertify.prompt("Bloqueo de Seguridad: Por favor introdusca su contraseña",'');  
         $.ajax({
             'url':'bloqueousuario',
             'data':{
@@ -84,7 +87,7 @@ function bloqueoUsuario(){
         'error':error,
         'success':function(data){
             if(data!=0){
-                alert('No se ha podido cerrar la sesion: Intente de nuevo'); 
+                alertify.error("No se ha podido cerrar la sesion: Intente de nuevo"); 
             }else{
                 setTimeout("location.href='index.jsp'", 1000);
             }

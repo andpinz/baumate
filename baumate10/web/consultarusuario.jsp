@@ -13,16 +13,24 @@
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
     <script type='text/javascript' src='Css/menu_jquery.js'></script>
-    <link rel="stylesheet" type="text/css" href="Css/Master.css">
+    <link rel="stylesheet" type="text/css" href="Css/consultarusuario.css">
     <link href="imagenes/baumate-icono.ico" type="image/x-icon" rel="shortcut icon" />
-    <jsp:include page="administrador.jsp"></jsp:include>
+    <jsp:include page="secretaria.jsp"></jsp:include>
     </head>
     <body> 
-        <form>
-    <h1>Lista de Usuarios</h1>
-            <input type="text" id="buscar"> <input type="button" id="btnConsultar" value="..." class="boton">
-            <table id="tblUsuario"/> </table>
-                        </form>
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Buscar Usuario</h1>
+            </div>
+            <div id="formulario">
+               <input type="text" id="buscar" placeholder="Correo"  > 
+            <input type="button" id="btnConsultar" value="Buscar" >
+            </div>
+            <div id="tabla">
+            <table id="tblUsuario"> 
+            </table>
+            </div>
+                </div>
 
     <script type="text/javascript" src="js/JavaScriptConsultarListausuario.js"></script>
 </body>
