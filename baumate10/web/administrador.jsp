@@ -9,6 +9,9 @@
 	<title>Bumate</title>
    <meta charset="UTF-8">
    <link rel="stylesheet" type="text/css" href="Css/Master.css"/>
+      <link rel="stylesheet" type="text/css" href="Css/alertify.core.css"/>
+   <link rel="stylesheet" type="text/css" href="Css/alertify.default.css"/>
+   <script type="text/javascript" src="js/alertify.js"></script>
    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script type='text/javascript' src='js/menu_jquery.js'></script>
