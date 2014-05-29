@@ -311,7 +311,7 @@
 
     function insertores(actividad, content, indtract) {
         var tbl = $('<table>').attr('class', 'tblingre' + actividad.codigo);
-        
+        /*
         var trt = $('<tr>');
         var tdt = $('<td>').text('Material');
         trt.append(tdt);
@@ -323,14 +323,14 @@
         trt.append(tdt);
         var tdt = $('<td>').text('Valor Unitario');
         trt.append(tdt);
-        var tdt = $('<td>').text('Valor total');/*
+        var tdt = $('<td>').text('Valor total');
         trt.append(tdt);
-        var tdt = $('<td>').text('Calcular');*/
+        var tdt = $('<td>').text('Calcular');
         trt.append(tdt);
         var tdt = $('<td>').text('Agregar');
         trt.append(tdt);
         tbl.append(trt);
-
+*/
         var tr = $('<tr>').attr('id', 'trxa' + actividad.codigo);
         var td = $('<td>');
         var txt = $('<select>');
