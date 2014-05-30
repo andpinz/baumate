@@ -13,13 +13,19 @@ box-shadow: 8px 9px 20px #000000;
     text-align: center;
   width: auto;
   height: auto;
-  padding: 1%;
+  padding: 0.5%;
 }
 #formulario{
   float: right;
-  width: 50%;
+  width: 80%;
   height: auto;
   padding: 1%;
+}
+#btnCancelar{
+    display: none;
+}
+#buscare{
+    margin-left: 35%;
 }
 #tabla{
     alignment-adjust: central;
@@ -35,7 +41,7 @@ font-size: .7em;
 border: 2px solid #D8CF17;
 border-radius: 3px;
 box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
-width: 70%;
+width: 25%;
 height: 18px;
 padding: .4em;
 }
@@ -48,7 +54,7 @@ height:auto;
 table td, table th { 
   padding: 15px 55px; 
 }
-tr:nth-child(odd){ background-color:#FFFF66; }
+tr:nth-child(odd){ background-color:#CCCC33 ;}
 tr:nth-child(even)    { background-color:#ffffff; }
 td{
   border:3px solid #6E6C5B;

@@ -59,8 +59,7 @@ function Bloquear() {
 }
 
 function bloqueoUsuario(){
-        var contrasena;
-        alertify.prompt("Bloqueo de Seguridad: Por favor introdusca su contraseña",'');  
+        var contrasena=prompt("Bloqueo de Seguridad: Por favor introdusca su contraseña",'');  
         $.ajax({
             'url':'bloqueousuario',
             'data':{
