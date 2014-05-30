@@ -97,10 +97,11 @@
             'success': function(data) {
                 //data = $(JSON.parse(data))
                 if (data==1) {
-                    alert('se logro eliminar la solicitud satisfactoriamente');
-                    setTimeout("location.href='administrador.jsp'", 500);
+                    alertify.log('se logro eliminar la solicitud satisfactoriamente');
+                    //setTimeout("location.href='administrador.jsp'", 500);
+                    $('#btnBuscarId').click();
                 }else{
-                    alert('no se logro eliminar la solicitud');
+                    alertify.error('no se logro eliminar la solicitud');
                 }
             }
         });

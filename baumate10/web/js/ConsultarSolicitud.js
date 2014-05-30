@@ -387,12 +387,12 @@
 //                                });
                                 if (data == 1) {
                                     if (i==(nft-2)) {
-                                        alert('Se guardado la orden correctamente');
+                                        alertify.log('Se guardado la orden correctamente');
                                         limpiar();
                                         buscador();
                                     }
                                 }else{
-                                    alert('error al guardar la fila numero '+(i+1));
+                                    alertify.error('error al guardar la fila numero '+(i+1));
                                 }
                             }
                         });

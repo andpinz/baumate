@@ -95,9 +95,10 @@
                     //var value= data;
                     var value = $('#cboProyecto').val();
                     document.cookie = name + "=" + escape(value)+"; ";
-                    setTimeout("location.href='ModificarSolicitud,jsp'", 500);
+                    setTimeout("location.href='ModificarSolicitud.jsp'", 500);
                 }else{
-                    alert("no se guardo");
+                    //alert("no se guardo");
+                    alertify.log("no se guardo");
                 }
             }
         });
