@@ -4,6 +4,50 @@
     $('#btnBuscarId').on('click',consultarProyecto);
      $('#btnLimpiar').on('click', limpiarinformacion);
     
+    $('#btnAddCiudad').on('click', popupciudad);    
+    $('#btnCancelarCiudad').on('click', cancelarCiudad);
+    $('#btnGuardarCiudad').on('click',insertarciudad);
+    
+    function cancelarCiudad(){
+        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+        $('#txtCiudad').val('');
+        listarCiudades();
+    }
+    
+    function popupciudad(){
+        var type = $(this).attr('data-type');
+
+	$('.overlay-container').fadeIn(function() {
+		window.setTimeout(function(){
+                    $('.window-container.'+type).addClass('window-container-visible');
+		}, 100);
+	});
+    }
+    
+    
+    function insertarciudad(){
+        var txtCiudad = $('#txtCiudad').val();
+        $.ajax({
+            'url':'insertarciudad',
+            'data':{
+                'ciudad':txtCiudad
+            },
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+                //data = $(JSON.parse(data))
+                if (data==1) {
+                    alertify.log('se logro crear la unidad de medida satisfactoriamente');
+                    $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+                    $('#txtCiudad').val('');
+                    listarCiudades();
+                }else{
+                    alertify.error('no se logro crear la unidad de medida');
+                }
+            }
+        });
+    }
+    
     
      function limpiarinformacion() {
         $('#txtidproy').val('');
