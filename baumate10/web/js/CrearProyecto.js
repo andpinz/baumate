@@ -51,7 +51,7 @@
         var txtFechaIni = $('#txtFechaIni').val();
         var txtFechaFin = $('#txtFechaFin').val();
         var txtDireccion = $('#txtDireccion').val();
-        var txtGanancias = $('#txtGanancias').val();
+        //var txtGanancias = $('#txtGanancias').val();
         var txtPresupuesto = $('#txtPresupuesto').val();
         var txtIdEmpleado = $('#txtIdEmpleado').val();
         $.ajax({
@@ -62,7 +62,7 @@
                 'fechaini':txtFechaIni,
                 'fechafin':txtFechaFin,
                 'direccion':txtDireccion,
-                'ganancia':txtGanancias,
+                'ganancia':0,
                 'presupuesto':txtPresupuesto,
                 'idempleado':txtIdEmpleado
             },
