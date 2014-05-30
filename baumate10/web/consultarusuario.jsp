@@ -26,7 +26,7 @@
                <input type="text" id="buscare" placeholder="Nombre del empleado"  > 
                <input type="text" id="buscar" placeholder="Correo"  > 
             <input type="button" id="btnConsultar" value="Buscar" >
-            <input type="hidden" id="idUsuario">
+            <input type="button" id="btnCancelar" value="Cancelar" >
             </div>
             <div id="tabla">
             <table id="tblUsuario"></table>

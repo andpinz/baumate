@@ -17,9 +17,19 @@ box-shadow: 8px 9px 20px #000000;
 }
 #formulario{
   float: right;
-  width: 80%;
+  width: 95%;
   height: auto;
   padding: 1%;
+}
+#btnCancelar{
+    float: left;
+    color: #6E6C5B;
+  background: #FFFF33;
+}
+#btnCancelar:hover{
+    float: left;
+    background: #6E6C5B;
+  color: #fff;
 }
 #buscare{
     margin-left: 35%;

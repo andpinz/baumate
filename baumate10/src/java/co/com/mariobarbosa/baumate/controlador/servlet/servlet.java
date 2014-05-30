@@ -683,12 +683,17 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
     private void buscarUsuario(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         String correo = request.getParameter("correo");
         UsuarioVo busqueda = new UsuarioVo();
+        int validar=0;
         try {
             busqueda = new UsuarioDao().BuscarUsuario(correo);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            if(busqueda!=null){
             out.print(new Gson().toJson(busqueda));
+            }else{
+            out.print(validar);
+            }
         }
     }
     
