@@ -64,13 +64,8 @@
     
         function buscarUsuario(){
                  var correo = $('#buscar').val();
-            var nempleado = $('#buscare').val();
-                  if (correo==""&&nempleado=="") {
-                      alertify.log("Por favor ingrese un correo o un nombre de empleado."); 
-                }else if (correo!=""&&nempleado!=""){
-                      alertify.error("<b>Error-ambos campos ingresados:</b><br>Por favor ingrese un solo campo para buscar."); 
-                }else if(correo==""&&nempleado!=""){
-                    buscarEmpleado();
+                  if (correo=="") {
+                      alertify.log("Por favor ingrese un correo a buscar.");  
                 }else{
         $.ajax({
             'url':'buscarusuario',
@@ -81,7 +76,7 @@
             'error':error,
             'success': function(data) {
                 if(data==0){
-                alertify.log("<b>Error-usuario no encontrado:</b><br>Por favor verifique el correo ingresado.");
+                alertify.error("<b>Error-usuario no encontrado:</b><br>Por favor verifique el correo ingresado.");
                     }else{
                 data = $(JSON.parse(data));
                 var content = $('#tblUsuario');
@@ -153,6 +148,8 @@
                     var d2 = $('<tr>');
                     var td = $('<td>').text("Correo");
                     d2.append(td);
+                    var td = $('<td>').text("Contraseña");
+                    d2.append(td);
                     td = $('<td>').text("Rol");
                     d2.append(td);
                     td = $('<td>').text("Estado");
@@ -161,8 +158,6 @@
                     d2.append(td);
                     content.append(d2);
                 data.each(function(i,item){
-                    $('#idUsuario').val(item.idUsuario);
-                    
                     var d2 = $('<tr>');
                     var td = $('<td>');
                     var tdi = $('<input>');
@@ -171,6 +166,18 @@
                     tdi.attr('id', 'correo' + i);
                     tdi.attr('vl', i);
                     td.append(tdi);
+                    var h = $('<input>');
+                    h.attr('type', 'hidden');
+                    h.val(item.idUsuario);
+                    td.append(h);
+                    d2.append(td);
+                    td = $('<td>');
+                    var tdi2 = $('<input>');
+                    tdi2.attr('type', 'text');
+                    tdi2.val(item.contrasena);
+                    tdi2.attr('id', 'contrasena' + i);
+                    tdi2.attr('vl', i);
+                    td.append(tdi2);
                     d2.append(td);
                     td = $('<td>').text(item.rol.nombrerol);
                     d2.append(td);
@@ -193,6 +200,9 @@
                     document.getElementById("correo"+i).style.width="auto";
                     document.getElementById("correo"+i).style.margin="0px 0px 0px 0px";
                     document.getElementById("correo"+i).style.fontSize="17px";
+                    document.getElementById("contrasena"+i).style.width="auto";
+                    document.getElementById("contrasena"+i).style.margin="0px 0px 0px 0px";
+                    document.getElementById("contrasena"+i).style.fontSize="17px";
                 });
             }
         });
