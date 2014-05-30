@@ -53,14 +53,13 @@
                     td.append(tdi1);
                     d2.append(td);
                     content.append(d2);
-//                    $('#modificar' + i).on('click', buscarUsuario);
                 });
             }
         });
     }
-    
+    var correo="";
         function buscarUsuario(){
-            var correo = $('#buscar').val();
+                correo = $('#buscar').val();
             var nempleado = $('#buscare').val();
                   if (correo==""&&nempleado=="") {
                       alertify.log("Por favor ingrese un correo o un nombre de empleado."); 
@@ -81,7 +80,6 @@
                 if(data==null){
                     alertify.log("<b>Error-usuario no encontrado:</b><br>Por favor verifique el correo ingresado.");
                 }
-//                document.getElementsById("btnCancelar").style.display='block';
                 var content = $('#tblUsuario');
                 content.html('');
                     var d2 = $('<tr>');
@@ -97,8 +95,16 @@
                     d2.append(td);
                     content.append(d2);
                 data.each(function(i,item){
+                    $('#idUsuario').val(item.idUsuario);
+                    
                     var d2 = $('<tr>');
-                    var td = $('<td>').text(item.correo);
+                    var td = $('<td>');
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'text');
+                    tdi.val(item.correo);
+                    tdi.attr('id', 'correo' + i);
+                    tdi.attr('vl', i);
+                    td.append(tdi);
                     d2.append(td);
                     td = $('<td>').text(item.rol.nombrerol);
                     d2.append(td);
@@ -108,6 +114,15 @@
                         var estado="Inactivo"
                     }
                     td = $('<td>').text(estado);
+                    d2.append(td);
+                    td = $('<td>');
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'text');
+                    tdi.val(item.rol.idrol);
+//                    tdi.attr('value').val(item.rol.idrol);
+                    tdi.attr('id', 'idrol' + i);
+                    tdi.attr('vl', i);
+                    td.append(tdi);
                     d2.append(td);
                     td = $('<td>');
                     var tdi = $('<input>');
@@ -126,8 +141,9 @@
                     td.append(tdi1);
                     d2.append(td);
                     content.append(d2);
-                    $('#modificar' + i).on('click', modificarUsuario);
-                    $('#activarinactivar' + i).on('click', activarinactivarUsuario);
+                    document.getElementById("correo"+i).style.width="auto";
+                    document.getElementById("correo"+i).style.margin="0px 0px 0px 0px";
+                    document.getElementById("correo"+i).style.fontSize="17px";
                 });
             }
         });
