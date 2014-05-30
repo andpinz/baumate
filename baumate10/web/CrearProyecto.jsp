@@ -30,7 +30,7 @@
                         Ciudad
                         <select name="cboCiudad" id="cboCiudad">
                         </select> <input id="btnAddCiudad" value="+" type="button" data-type="zoomin">
-                        <div  class="overlay-container">
+                        <div class="overlay-container">
                             <div class="window-container zoomin" >
                                 <p>Nombre de la Ciudad:</p>
                                 <input name="txtCiudad" type="text" id="txtCiudad" lbl="lblCiudad">
