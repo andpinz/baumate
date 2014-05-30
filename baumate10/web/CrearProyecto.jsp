@@ -35,10 +35,10 @@
                 <input name="txtFechaFin" type="date" id="txtFechaFin"> <br>
                 Direcciòn 
                 <input name="txtDireccion" type="text" id="txtDireccion" lbl="lbldireccion"> 
-                <label id="lbldireccion"class="lblestil"></label><br>
+                <label id="lbldireccion"class="lblestil"></label><br><!--
                 Ganancias
                 <input name="txtGanancias" type="text" id="txtGanancias"> <br>
-                <label id="lblganacias"class="lblestil"></label><br>
+                <label id="lblganacias"class="lblestil"></label><br>-->
                 Presupuesto
                 <input name="txtPresupuesto" type="text" id="txtPresupuesto" lbl="lblpresupuesto">
                 <label id="lblpresupuesto"class="lblestil"></label><br>
