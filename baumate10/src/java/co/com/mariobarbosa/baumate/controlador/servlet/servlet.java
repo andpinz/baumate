@@ -1389,7 +1389,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         ArrayList<SolicitudVO> solicGen = null;
         try {
             ArrayList<String []> listasolic = new ArrayList<String []>();
-            listasolic = new Gson().fromJson(arrsolic, (new com.google.common.reflect.TypeToken<ArrayList<String []>>(){}.getType() ));
+            listasolic = new Gson().fromJson(arrsolic, (new TypeToken<ArrayList<String []>>(){}.getType() ));
             String indices = "";
             for (String[] solic : listasolic) {
                 indices += solic[0] + ",";
