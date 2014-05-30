@@ -1,39 +1,7 @@
 (function($){
     listarusuarios();
-    tablaOpciones();
         $('#btnConsultar').on('click',buscarUsuario);
         
-        function tablaOpciones(){
-        $.ajax({
-            'url':'',
-            'type':'POST',
-            'error':error,
-            'success': function(data) {
-                var content = $('#tblOpciones');
-                content.html('');
-                    var d2 = $('<tr>');
-                    var td = $('<td>').text("Nuevo");
-                    d2.append(td);
-                    td = $('<td>').text("Buscar");
-                    d2.append(td);
-                    td = $('<td>').text("Modificar");
-                    d2.append(td);
-                    td = $('<td>').text("Activar-Inactivar");
-                    d2.append(td);
-                    content.append(d2);
-                data.each(function(i,item){
-                    var d2 = $('<tr>');
-                    td = $('<td>');
-                    var tdi = $('<input>');
-                    tdi.attr('type', 'button');
-                    tdi.attr('value', 'Nuevo');
-                    td.append(tdi);
-                    d2.append(td);
-                    content.append(d2);
-                });
-            }
-        });
-    }
     
         function buscarUsuario(){
         $.ajax({
@@ -44,7 +12,7 @@
             'type':'POST',
             'error':error,
             'success': function(data) {
-                data = $(JSON.parse(data))
+                data = $(JSON.parse(data));
                 var content = $('#tblUsuario');
                 content.html('');
                     var d2 = $('<tr>');
@@ -53,6 +21,8 @@
                     td = $('<td>').text("Rol");
                     d2.append(td);
                     td = $('<td>').text("Estado");
+                    d2.append(td);
+                    td = $('<td>').text("Modificar");
                     d2.append(td);
                     content.append(d2);
                 data.each(function(i,item){
@@ -68,11 +38,22 @@
                     }
                     td = $('<td>').text(estado);
                     d2.append(td);
+                    td = $('<td>');
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'button');
+                    tdi.attr('value', 'Modificar');
+                    tdi.attr('id', 'modificar' + i);
+                    tdi.attr('vl', item.idUsuario);
+                    td.append(tdi);
+                    d2.append(td);
                     content.append(d2);
+                    $('#modificar' + i).on('click', buscarUsuario);
                 });
             }
         });
     }
+        
+        
         
     function listarusuarios(){
         $.ajax({
@@ -90,6 +71,8 @@
                     d2.append(td);
                     td = $('<td>').text("Estado");
                     d2.append(td);
+                    td = $('<td>').text("Modificar");
+                    d2.append(td);
                     content.append(d2);
                 data.each(function(i,item){
                     var d2 = $('<tr>');
@@ -104,7 +87,16 @@
                     }
                     td = $('<td>').text(estado);
                     d2.append(td);
+                    td = $('<td>');
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'button');
+                    tdi.attr('value', 'Modificar');
+                    tdi.attr('id', 'modificar' + i);
+                    tdi.attr('vl', item.idUsuario);
+                    td.append(tdi);
+                    d2.append(td);
                     content.append(d2);
+                    $('#modificar' + i).on('click', buscarUsuario);
                 });
             }
         });
