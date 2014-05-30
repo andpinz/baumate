@@ -55,4 +55,19 @@ public class CiudadDAO extends Conexion{
             return ciudades;
         }
     }
+    
+    public int insertar(CiudadVO data){
+        int respuesta = -1;
+        try {
+            conectar();
+            PreparedStatement sentencia = conectar.prepareStatement("INSERT INTO ciudad (nombreciudad) VALUES (?)");
+            sentencia.setString(1, data.getNombreciudad());
+            respuesta = sentencia.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            desconectar();
+            return respuesta;
+        }
+    }
 }

@@ -112,7 +112,8 @@ import net.sf.jasperreports.engine.JasperRunManager;
                                              "/listarmatofrecido","/buscarmatofrecido","/guardarsolicitud","/listarsolicitudes","/consultarsolicitudes",
                                             "/buscarsolicitud","/modificarsolicitud","/eliminarsolicitud","/consultarcolicitudasignada","/modificarsolicitudasignada",
 
-                                            "/rep1" ,"/modificarSolicitudFechaRecibido","/consultarsolicasignadas","/modificarsolicasignadas"})
+                                            "/rep1" ,"/modificarSolicitudFechaRecibido","/consultarsolicasignadas","/modificarsolicasignadas",
+                                            "/insertarciudad"})
 public class servlet extends HttpServlet {
 
     /**
@@ -387,14 +388,16 @@ public class servlet extends HttpServlet {
                 ConsultarSolicitudAsignada(request, response, out);
             }else if (url.contains("modificarsolicitudasignada")) {
                 modificarSolicitudAsignada(request, response, out);
-            
-            
-            
+                        
             }else if (url.contains("rep1")){
                 reporteproveedores(request, response, out);
             }
             else if (url.contains("modificarSolicitudFechaRecibido")) {
                 modificarSolicitudFechaRecibido(request, response, out);
+            }
+            
+            else if (url.contains("insertarciudad")){
+                insertarCiudad(request, response, out);
             }
             
             
@@ -2637,4 +2640,19 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
        
     }
       }
+
+    private void insertarCiudad(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int resp = 0;
+        try {
+            String nombre = request.getParameter("ciudad");
+            CiudadVO ciudad = new CiudadVO();
+            ciudad.setNombreciudad(nombre);
+            resp = new CiudadDAO().insertar(ciudad);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print(resp);
+        }
+    }
 }
