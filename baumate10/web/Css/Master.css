@@ -330,8 +330,8 @@ height: 60px;
 input[type="button"]{
   height: 28px;
   border: 2px solid #6E6C5B;
-  color: #6E6C5B;
-  background: #FFFF33;
+  color: #FFFF33;
+  background: #6E6C5B;
   font-size: 17px;
   font-weight: bold;
 }
