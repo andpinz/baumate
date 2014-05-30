@@ -8,6 +8,11 @@
      function limpiarinformacion() {
         $('#txtDescripcion').val('');
         $('#txtArea').val('');
+        $('#cboProyecto').val('');
+        $('#txtCodigo').val('');
+        $('#cboTipoPiso').val('');
+        $('#tblActividades').html('');
+        
      }
     
     
@@ -76,10 +81,13 @@
             'success': function(data) {
                 //data = $(JSON.parse(data))
                 if (data==1) {
-                    alert('se logro modificar la actividad satisfactoriamente');
-                    setTimeout("location.href='administrador.jsp'", 500);
+                    //alert('se logro modificar la actividad satisfactoriamente');
+                    alertify.log('se logro modificar la actividad satisfactoriamente');
+                    //setTimeout("location.href='administrador.jsp'", 500);
+                    limpiarinformacion();
                 }else{
-                    alert('no se logro modificar la actividad');
+                    alertify.error('no se logro modificar la actividad');
+                    //alert('no se logro modificar la actividad');
                 }
             }
         });

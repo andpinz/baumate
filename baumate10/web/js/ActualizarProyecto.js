@@ -92,10 +92,11 @@
             'success': function(data) {
                 //data = $(JSON.parse(data))
                 if (data==1) {
-                    alert('se logro modificar el proyecto satisfactoriamente');
-                    setTimeout("location.href='administrador.jsp'", 500);
+                    alertify.log('se logro modificar el proyecto satisfactoriamente');
+                    //setTimeout("location.href='administrador.jsp'", 500);
+                    limpiarinformacion();
                 }else{
-                    alert('no se logro modificar el proyecto');
+                    alertify.error('no se logro modificar el proyecto');
                 }
             }
         });

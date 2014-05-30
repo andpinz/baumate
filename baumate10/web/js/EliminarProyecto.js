@@ -140,10 +140,11 @@
             'success': function(data) {
                 //data = $(JSON.parse(data))
                 if (data==1) {
-                    alert('se logro eliminar el proyecto satisfactoriamente');
-                    setTimeout("location.href='administrador.jsp'", 500);
+                    alertify.log('se logro eliminar el proyecto satisfactoriamente');
+                    //setTimeout("location.href='administrador.jsp'", 500);
+                    $('#btnBuscar').click();
                 }else{
-                    alert('no se logro crear el proyecto');
+                    alertify.error('no se logro crear el proyecto');
                 }
             }
         });
