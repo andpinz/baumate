@@ -95,7 +95,7 @@
                     //var value= data;
                     var value = $('#cboProyecto').val();
                     document.cookie = name + "=" + escape(value)+"; ";
-                    setTimeout("location.href='ConsultarSolicitud.jsp'", 500);
+                    setTimeout("location.href='ModificarSolicitud,jsp'", 500);
                 }else{
                     alert("no se guardo");
                 }
@@ -215,8 +215,8 @@
                 trt.append(tdt);
                 var tdt = $('<td>').text('Valor total');
                 trt.append(tdt);
-                var tdt = $('<td>').text('Calcular');
-                trt.append(tdt);
+                //var tdt = $('<td>').text('Calcular');
+                //trt.append(tdt);
                 var tdt = $('<td>').text('Eliminar');
                 trt.append(tdt);
                 tbl.append(trt);
@@ -276,11 +276,12 @@
                     txt.attr('vlacta', actividad.codigo);
                     txt.attr('vlarea', actividad.area);
                     td.append(txt);
-                    tr.append(td);
-                    var td = $('<td>');
+                    //tr.append(td);
+                    //var td = $('<td>');
                     var txt = $('<input>').attr('type', 'button');
                     txt.attr('id', 'btncal' + item.idmaterial.idmateriales + 'a' + actividad.codigo);
                     txt.attr('value', 'calcular');
+                    txt.css('display', 'none');
                     txt.on('click', calcular);
                     txt.attr('vlidma', item.idmaterial.idmateriales);
                     txt.attr('vlacta', actividad.codigo);
@@ -294,6 +295,8 @@
                     txt.on('click', eliminar);
                     txt.attr('vlidma', item.idmaterial.idmateriales);
                     txt.attr('vlacta', actividad.codigo);
+                    txt.attr('indidma', ind);
+                    txt.attr('indacta', i);
                     td.append(txt);
                     tr.append(td);
                     tbl.append(tr);
@@ -308,6 +311,7 @@
 
     function insertores(actividad, content, indtract) {
         var tbl = $('<table>').attr('class', 'tblingre' + actividad.codigo);
+        /*
         var trt = $('<tr>');
         var tdt = $('<td>').text('Material');
         trt.append(tdt);
@@ -326,7 +330,7 @@
         var tdt = $('<td>').text('Agregar');
         trt.append(tdt);
         tbl.append(trt);
-
+*/
         var tr = $('<tr>').attr('id', 'trxa' + actividad.codigo);
         var td = $('<td>');
         var txt = $('<select>');
@@ -378,11 +382,12 @@
         txt.attr('vlacta', actividad.codigo);
         txt.attr('vlarea', actividad.area);
         td.append(txt);
-        tr.append(td);
-        var td = $('<td>');
+        //tr.append(td);
+        //var td = $('<td>');
         var txt = $('<input>').attr('type', 'button');
         txt.attr('id', 'btncalxa' + actividad.codigo);
         txt.attr('value', 'calcular');
+        txt.css('display', 'none');
         txt.on('click', calcularagregado);
         txt.attr('vlacta', actividad.codigo);
         txt.attr('vlarea', actividad.area);
@@ -452,11 +457,12 @@
         txt.attr('id', 'txtpreciot' + idmaterial + 'a' + vlacta);
         txt.attr('value', (preciou * (cantidadu * area)));
         td.append(txt);
-        tr.append(td);
-        var td = $('<td>');
+        //tr.append(td);
+        //var td = $('<td>');
         var txt = $('<input>').attr('type', 'button');
         txt.attr('id', 'btncal' + idmaterial + 'a' + vlacta);
         txt.attr('value', 'calcular');
+        txt.css('display', 'none');
         txt.on('click', calcular);
         txt.attr('vlidma', idmaterial);
         txt.attr('vlacta', vlacta);
