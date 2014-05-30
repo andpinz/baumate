@@ -96,7 +96,7 @@
     }
 
 
-var tiempoincativo = 10; 
+var tiempoincativo = 300; 
 var Reiniciocontador = 0;
 document.onclick = function() {
     Reiniciocontador = 0;
