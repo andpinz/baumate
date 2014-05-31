@@ -24,7 +24,7 @@ function ControlCookies(){
         return "";
     }
     this.consultarRefinado = function(nombre){
-        var str = consultar(nombre);
+        var str = this.consultar(nombre);
         if(str != "" && str != undefined){
             str = str.replace("=","");
         }

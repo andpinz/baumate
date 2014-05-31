@@ -45,16 +45,17 @@
                     d2.append(td);
                     td = $('<td>').text(item.fechafinal);
                     d2.append(td);
+                    td = $('<td>');
                     var tdi = $('<input>');
                     tdi.attr('type', 'button');
                     tdi.attr('value', 'modificar');
-                    tdi.attr('id', 'proy' + item.idproyecto);
+                    tdi.attr('id', 'modProy' + item.idproyecto);
                     tdi.attr('vl', item.idproyecto);
                     td.append(tdi);
                     d2.append(td);
                     //content.append(d2);
-                    $('#proy' + item.idproyecto).on('click', modificar);
                     
+                    td = $('<td>');
                     var tdi = $('<input>');
                     tdi.attr('type', 'button');
                     tdi.attr('value', 'Eliminar');
@@ -63,9 +64,10 @@
                     td.append(tdi);
                     d2.append(td);
                     //content.append(d2);
-                    $('#proy' + item.idproyecto).on('click', eliminar);
 
                     content.append(d2);
+                    $('#modProy' + item.idproyecto).on('click', modificar);
+                    $('#proy' + item.idproyecto).on('click', eliminar);
                 });
             }
         });
@@ -144,6 +146,11 @@
                 d2.append(td);
                 td = $('<td>').text("Fecha finalizaciòn");
                 d2.append(td);
+                td = $('<td>').text("Modificar");
+                d2.append(td);
+                td = $('<td>').text("Eliminar");
+                d2.append(td);
+
                 content.append(d2);
 
                 data.each(function(i, item) {
@@ -158,6 +165,28 @@
                     d2.append(td);
                     td = $('<td>').text(item.fechafinal);
                     d2.append(td);
+                    td = $('<td>')
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'button');
+                    tdi.attr('value', 'modificar');
+                    tdi.attr('id', 'modProy' + item.idproyecto);
+                    tdi.attr('vl', item.idproyecto);
+                    td.append(tdi);
+                    d2.append(td);
+                    //content.append(d2);
+                    $('#modProy' + item.idproyecto).on('click', modificar);
+                    
+                    td = $('<td>')
+                    var tdi = $('<input>');
+                    tdi.attr('type', 'button');
+                    tdi.attr('value', 'Eliminar');
+                    tdi.attr('id', 'proy' + item.idproyecto);
+                    tdi.attr('vl', item.idproyecto);
+                    td.append(tdi);
+                    d2.append(td);
+                    //content.append(d2);
+                    $('#proy' + item.idproyecto).on('click', eliminar);
+
                     content.append(d2);
                 });
             }
