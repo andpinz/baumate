@@ -123,7 +123,7 @@
                     td.append(tdi1);
                     d2.append(td);
                     content.append(d2);
-                    $('#modificar' + i).on('click', tablaModificar)
+                    $('#modificar' + i).on('click', tablaModificar);
                 });
             }
         }
@@ -179,7 +179,12 @@
                     tdi2.attr('vl', i);
                     td.append(tdi2);
                     d2.append(td);
-                    td = $('<td>').text(item.rol.nombrerol);
+                    td = $('<td>');
+                    var op = $('<select>');
+                    ingresoRol();
+                    op.attr('id', 'rol');
+//                    tdi2.attr('vl', i);
+                    td.append(op);
                     d2.append(td);
                     if(item.estado==1){
                         var estado="Activo";
@@ -203,9 +208,28 @@
                     document.getElementById("contrasena"+i).style.width="auto";
                     document.getElementById("contrasena"+i).style.margin="0px 0px 0px 0px";
                     document.getElementById("contrasena"+i).style.fontSize="17px";
+//                    ingresoRol();
                 });
             }
         });
+    }
+    
+    function ingresoRol(){
+        $.ajax({
+            'url':'ingresarrol',
+            'type':'POST',
+            'error':error,
+            'success':function(data){
+                data = $(JSON.parse(data));
+                data.each(function(i,item){
+                var lista=$('#rol');
+                        var op = $('<option>').text(item.nombrerol);
+                        op.attr('value',item.idrol);
+                        lista.append(op);
+            }); 
+                }
+            });
+        
     }
 
     function error(error){
