@@ -25,6 +25,7 @@
             <div id="formulario">
                <input type="text" id="buscar" placeholder="Correo"  > 
             <input type="button" id="btnConsultar" value="Buscar" >
+            <input type="button" id="btnCrear" value="Crear Usuario" >
             <input type="button" id="btnCancelar" value="Cancelar" >
             </div>
             <div id="tabla">
