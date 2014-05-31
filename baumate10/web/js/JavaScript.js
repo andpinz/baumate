@@ -12,13 +12,13 @@
         var correo = $('#correo').val();
         var contrasena = $('#contrasena').val();
         if (correo==""&&contrasena=="") {
-            alertify.log("Por favor introdusca un correo y contraseña para poder iniciar sesión."); 
+            alertify.log("Por favor ingrese un correo y contraseña para poder iniciar sesión."); 
             validacion=0;
                 }else if(contrasena==""){
-                    alertify.log("Por favor introdusca una contraseña."); 
+                    alertify.log("Por favor ingrese una contraseña."); 
                     validacion=0;
                 }else if(correo==""){
-                    alertify.log("Por favor introdusca un correo."); 
+                    alertify.log("Por favor ingrese un correo."); 
                     validacion=0;
                 }
                 if(validacion==1){

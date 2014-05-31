@@ -13,13 +13,26 @@ box-shadow: 8px 9px 20px #000000;
     text-align: center;
   width: auto;
   height: auto;
-  padding: 1%;
+  padding: 0.5%;
 }
 #formulario{
   float: right;
-  width: 50%;
+  width: 95%;
   height: auto;
   padding: 1%;
+}
+#btnCancelar{
+    float: left;
+    color: #6E6C5B;
+  background: #FFFF33;
+}
+#btnCancelar:hover{
+    float: left;
+    background: #6E6C5B;
+  color: #fff;
+}
+#buscar{
+    margin-left: 55%;
 }
 #tabla{
     alignment-adjust: central;
@@ -27,6 +40,48 @@ box-shadow: 8px 9px 20px #000000;
   height: auto;
   padding: 2%;
 }
+select {
+  padding: 0;
+  margin-bottom: 2.5em;
+  position: relative;
+  border: 2px solid #6E6C5B;
+  border-radius: 10px;
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 4px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;  
+  -o-border-radius: 4px;
+  background: #CEC239;
+  color: #6E6C5B;
+  }
+  select:hover
+  {
+    color: #CEC239;
+  background: #6E6C5B;
+  }
+  select option
+  {
+  border: 2px solid #6E6C5B;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -o-border-radius: 4px;
+  background: #6E6C5B;
+  color: #CEC239;
+  }
+  option:hover
+  {
+  background: #CEC239;
+  color: #6E6C5B;
+  }
 input[type="text"],input[type="password"]{
 
 font-weight: bold;
@@ -35,7 +90,7 @@ font-size: .7em;
 border: 2px solid #D8CF17;
 border-radius: 3px;
 box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
-width: 70%;
+width: 25%;
 height: 18px;
 padding: .4em;
 }
@@ -46,9 +101,9 @@ height:auto;
 }
 
 table td, table th { 
-  padding: 15px 55px; 
+  padding: 15px 15px; 
 }
-tr:nth-child(odd){ background-color:#FFFF66; }
+tr:nth-child(odd){ background-color:#CCCC33 ;}
 tr:nth-child(even)    { background-color:#ffffff; }
 td{
   border:3px solid #6E6C5B;

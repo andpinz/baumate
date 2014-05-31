@@ -168,7 +168,6 @@
                     $('#txtcontadorcajas').val(i);
                 }
                 );
-                ﻿
             }
         });
 

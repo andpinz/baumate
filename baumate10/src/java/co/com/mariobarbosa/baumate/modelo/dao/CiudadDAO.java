@@ -21,7 +21,7 @@ public class CiudadDAO extends Conexion{
         CiudadVO ciudad = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("select * from ciudad where idciudad=?");
+            PreparedStatement sentencia = conectar.prepareStatement("select * from ciudad where idciudad=? order by nombreciudad Asc ");
             sentencia.setInt(1, idciudad);
             ResultSet resp = sentencia.executeQuery();
             if (resp.next()) {
@@ -40,7 +40,7 @@ public class CiudadDAO extends Conexion{
         ArrayList<CiudadVO> ciudades = new ArrayList<CiudadVO>();
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("select * from ciudad");
+            PreparedStatement sentencia = conectar.prepareStatement("select * from ciudad  order by nombreciudad Asc");
             ResultSet resp = sentencia.executeQuery();
             while (resp.next()) {
                 CiudadVO ciudad = new CiudadVO();
@@ -53,6 +53,21 @@ public class CiudadDAO extends Conexion{
         }finally{
             desconectar();
             return ciudades;
+        }
+    }
+    
+    public int insertar(CiudadVO data){
+        int respuesta = -1;
+        try {
+            conectar();
+            PreparedStatement sentencia = conectar.prepareStatement("INSERT INTO ciudad (nombreciudad) VALUES (?)");
+            sentencia.setString(1, data.getNombreciudad());
+            respuesta = sentencia.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            desconectar();
+            return respuesta;
         }
     }
 }
