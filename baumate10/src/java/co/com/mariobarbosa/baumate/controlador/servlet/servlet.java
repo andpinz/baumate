@@ -1717,16 +1717,19 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
 
    private void consultarProyecto(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        String nombre = request.getParameter("nombre");
-         ArrayList<ProyectoVO> tip = new ArrayList<ProyectoVO>();
+        //String nombre = request.getParameter("nombre");
+        String idproyecto = request.getParameter("idproyecto");
+        ArrayList<ProyectoVO> tip = new ArrayList<ProyectoVO>();
+        ProyectoVO tip2 = new ProyectoVO();
         
         try {
-           
-            tip = new ProyectoDAO().listar(nombre);
+            tip2 = new ProyectoDAO().consultar(Integer.parseInt(idproyecto));
+            //tip = new ProyectoDAO().listar(nombre);
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
-            out.print( new Gson().toJson(tip) );
+            out.print( new Gson().toJson(tip2) );
+            //out.print( new Gson().toJson(tip) );
         }
     }
     
