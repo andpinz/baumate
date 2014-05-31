@@ -15,6 +15,7 @@
    <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
 	<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
 	<script type='text/javascript' src='js/menu_jquery.js'></script>
+        <script type='text/javascript' src='js/ControlCookies.js'></script>
         <link href="imagenes/baumate-icono.ico" type="image/x-icon" rel="shortcut icon" />
 </head>
 <body background="imagenes/fondo.png">
