@@ -13,7 +13,7 @@ function ControlCookies() {
     this.consultar = function(nombre) {
         var name = nombre;
         var ca = document.cookie.split(';');
-        for (var i = 0; i < ca.length; )
+        for (var i = 0; i < ca.length; i++)
         {
             var c = ca[i].trim();
             if (c.indexOf(name) == 0) {
