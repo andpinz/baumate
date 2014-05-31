@@ -56,6 +56,7 @@
                     d2.append(td);
                     td = $('<td>').text(item.fechafinal);
                     d2.append(td);
+                    td = $('<td>');
                     var tdi = $('<input>');
                     tdi.attr('type', 'button');
                     tdi.attr('value', 'Eliminar');
@@ -64,6 +65,7 @@
                     td.append(tdi);
                     d2.append(td);
                     content.append(d2);
+                    $('#proy' + item.idproyecto).on('click', eliminar);
                 });
             }
         });

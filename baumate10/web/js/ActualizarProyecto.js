@@ -16,7 +16,6 @@
     
     function popupciudad(){
         var type = $(this).attr('data-type');
-
 	$('.overlay-container').fadeIn(function() {
 		window.setTimeout(function(){
                     $('.window-container.'+type).addClass('window-container-visible');
