@@ -86,14 +86,14 @@
     
     function crearUsuario(){
         var correo=$('#correo').val();
-        var contrasena2=$('#contrasena').val();
+        var contrasena2=$('#contrasena2').val();
         var contrasena=$('#contrasena').val();
         var rol=$('#rol').val();
         var estado=$('#estado').val();
         var empleado=$('#empleado').val();
         if (contrasena!=contrasena2){
         alertify.error("<b>Error-contraseña:</b><br>Las contraseñas no son iguales, por favor verifique las contraseñas.");
-        }
+        }else{
                 $.ajax({
                     'url':'ingresousuario',
                     'data':{
@@ -114,6 +114,7 @@
                     }
                 });
     }
+}
     
         function listarusuarios(){
         $.ajax({
@@ -294,6 +295,7 @@
                     td = $('<td>');
                     var op = $('<select>');
                     op.attr('id', 'rol');
+                    op.attr('name', 'rol');
 //                    tdi2.attr('vl', i);
                     td.append(op);
                     d2.append(td);
@@ -319,21 +321,21 @@
                     document.getElementById("contrasena"+i).style.width="auto";
                     document.getElementById("contrasena"+i).style.margin="0px 0px 0px 0px";
                     document.getElementById("contrasena"+i).style.fontSize="17px";
-//                    ingresoRol();
+                    ingresoRol();
                 });
             }
         });
     }
-    
+   
     function ingresoRol(){
         $.ajax({
             'url':'ingresarrol',
             'type':'POST',
             'error':error,
             'success':function(data){
+                var lista=$('#rol');
                 data = $(JSON.parse(data));
                 data.each(function(i,item){
-                var lista=$('#rol');
                         var op = $('<option>').text(item.nombrerol);
                         op.attr('value',item.idrol);
                         lista.append(op);
