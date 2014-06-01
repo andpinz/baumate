@@ -15,6 +15,13 @@ box-shadow: 8px 9px 20px #000000;
   height: auto;
   padding: 0.5%;
 }
+#formularioc{
+  alignment-adjust: central;
+  float: none;
+  height: auto;
+  padding: 2%;
+  display: none;
+}
 #formulario{
   float: right;
   width: 95%;
@@ -25,7 +32,7 @@ box-shadow: 8px 9px 20px #000000;
     float: right;
     margin-right: 4%;
 }
-#btnCancelar{
+#btnCancelar, #btnCancelaru{
     float: left;
     color: #6E6C5B;
   background: #FFFF33;

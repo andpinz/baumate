@@ -26,11 +26,9 @@
 		<p class="contrasena">Contraseña:</p><input type="password"  id="contrasena" class="contrasena" lbl="lblContrasena"/>
                 <label id="LblContrasena" class="lblestil"></label>
 		<p class="tipousuario">Tipo de Usuario:</p>
-		<select  id="idrol" class="tipousuario">
-                </select>
+		<select  id="idrol" class="tipousuario"></select>
+		<select  id="idempleado" class="tipoempleado"></select>
                 <p class="tipousuario">Empleado:</p>
-		<select  id="idempleado" class="tipoempleado">
-                </select>
                 <p class="estadousuario">Tipo de Estado:</p>
                 <select class="estado" id="estado">
                     <option value="1">Activo</option>

@@ -22,6 +22,15 @@
             <div id="titulo">
         <h1>Usuario</h1>
             </div>
+            <div id="formularioc">
+                <input type="text"  id="correo" placeholder="Correo"/>
+                <input type="password"  id="contrasena2" placeholder="Contraseña"/>
+                <input type="password"  id="contrasena2" placeholder="Confirmar contraseña"/>
+                <select  id="idrol"></select>
+		<select  id="idempleado"></select>
+                <input type="button" id="btnCrearu" value="Crear Usuario" >
+            <input type="button" id="btnCancelaru" value="Cancelar" >
+            </div>
             <div id="formulario">
             <input type="button" id="btnConsultar" value="Buscar" >
                <input type="text" id="buscar" placeholder="Correo"  > 

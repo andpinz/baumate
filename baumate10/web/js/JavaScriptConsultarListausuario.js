@@ -2,6 +2,9 @@
     listarusuarios();
         $('#btnConsultar').on('click',buscarUsuario);
         $('#btnCancelar').on('click',Cancelar);
+        $('#btnCancelaru').on('click',Cancelar);
+        $('#btnCrear').on('click',divCrear);
+        $('#btnCrearu').on('click',crearUsuario);
         
                 function Cancelar(){
         $.ajax({
@@ -9,10 +12,71 @@
             'error':error,
             'success': function(data) {
                 document.getElementById("buscar").value="";
+                var formularioc = document.getElementById("formularioc");
+                formularioc.style.display='none';
+        var formularioc = document.getElementById("btnCrear");
+        formularioc.style.display='';
+        var formularioc = document.getElementById("btnCancelar");
+        formularioc.style.display='';
                 listarusuarios();
             }
         });
     }
+    
+                function divCrear(){
+        $.ajax({
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+        var formularioc = document.getElementById("formularioc");
+        formularioc.style.display='block';
+        var formularioc = document.getElementById("btnCrear");
+        formularioc.style.display='none';
+        var formularioc = document.getElementById("btnCancelar");
+        formularioc.style.display='none';
+        ingresoEmpleado();
+            }
+        });
+    }
+    
+    function crearUsuario(){
+        var correo=$('#correo').val();
+        var contrasena=$('#contrasena').val();
+        var contrasena2=$('#contrasena2').val();
+        var idrol=$('#idrol').val();
+        var estado=$('#estado').val();
+        var idempleado=$('#idempleado').val();
+        if (contrasena=="Contraseña"&&contrasena2=="Confirmar contraseña"){
+            alertify.error("<b>Error-campos obligatorios:</b><br>Contraseña y Confirmar contraseña son campos obligatorios.");
+        }else if(contrasena2=="Confirmar contraseña"){
+            alertify.log("Por favor confirme su contraseña.");
+        }else if(contrasena=="Contraseña"){
+            alertify.log("Por favor ingrese una contraseña.");
+        }else if(contrasena2!=contrasena){
+            alertify.log("Las contraseñas no coinciden, por favor verifiquelas e intente de nuevo.");
+        }else{
+                $.ajax({
+                    'url':'ingresousuario',
+                    'data':{
+                        'correo':correo,
+                        'contrasena':contrasena,
+                        'estado':estado,
+                        'idrol':idrol,
+                        'idempleado':idempleado
+                    },
+                    'type':'POST',
+                    'error':error,
+                    'success': function (data){
+                        if(data==1){
+                            alertify.ok("El usuario fue creado correctamente.");
+                            setTimeout("location.href='nuevousuario.jsp'", 1000);
+                        }else{
+                            alertify.error("<b>Error-usraio no creado:</b><br>No se pudo crear el usuario, por favor verifique la informacion e intente de nuevo.");
+                        }
+                    }
+                });
+    }
+}
         
         function listarusuarios(){
         $.ajax({
@@ -137,6 +201,43 @@
         }
         });
             }
+    }
+    
+    function ingresoRol(){
+        $.ajax({
+            'url':'ingresarrol',
+            'type':'POST',
+            'error':error,
+            'success':function(data){
+                data = $(JSON.parse(data));
+                var lista=$('#idrol');
+                data.each(function(i,item){
+                        var op = $('<option>').text(item.nombrerol);
+                        op.attr('value',item.idrol);
+                        lista.append(op);
+            }); 
+                }
+            });
+        
+    }
+    
+    function ingresoEmpleado(){
+        $.ajax({
+            'url':'ingresarempleado',
+            'type':'POST',
+            'error':error,
+            'success':function(data){
+                data = $(JSON.parse(data));
+                var lista=$('#idempleado');
+                data.each(function(i,item){
+                        var op = $('<option>').text(item.primernombre+" "+item.segundonombre+" "+item.primerapellido+" "+item.segundoapellido);
+                        op.attr('value',item.idempleado);
+                        lista.append(op);
+                        ingresoRol();
+            }); 
+                }
+            });
+        
     }
 
     function error(error){
