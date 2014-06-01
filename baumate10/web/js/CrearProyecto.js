@@ -3,27 +3,93 @@
     $('#btnGuardar').on('click', valing);
     $('#btnLimpiar').on('click', limpiarinformacion);
     $('#btnAddCiudad').on('click', popupciudad);
-
+    $('#btnAddVenta').on('click', popupVenta);
     $('#btnCancelarCiudad').on('click', cancelarCiudad);
-
-    function cancelarCiudad() {
-        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
-        $('#txtCiudad').val('');
-        listarCiudades();
+    $('#btnCancelarVenta').on('click', cancelarVenta);
+    init();
+    $('#btnGuardarCiudad').on('click', insertarciudad);
+    insertores();
+    function insertores() {
+//        var content = $('#tblActividades');
+//        var tr = $('<tr>');
+//        var td = $('<td>');
+        listartipopisos();
+        $('#btnAgregarAct').on('click', addAct);
+    }
+    function addAct(){
+        var nft = $('#tblActividades >tbody >tr').length;
+        var ins = $('#insActividades');
+        var tr = $('<tr>').attr('id','tr'+(nft-2));
+        var td = $('<td>');
+        var input = $('<input>').attr('id','txtDescripcionAct'+(nft-2)).attr('type','text').val($('#txtDescripcionAct').val());
+        td.append(input);
+        tr.append(td);
+        var td = $('<td>');
+        var input = $('<input>').attr('id','txtAreaAct'+(nft-2)).attr('type','text').val($('#txtAreaAct').val());
+        td.append(input);
+        tr.append(td);
+        var td = $('<td>');
+        var input = $('<select>').attr('id','cbotipopisoAct'+(nft-2));
+        input.val($('#cbotipopisoAct').val());
+        td.append(input);
+        tr.append(td);
+        var td = $('<td>');
+        var input = $('<input>').attr('id','btnElimAct'+(nft-2)).attr('type','button').attr('vl',(nft-2)).on('click',elimAct);
+        td.append(input);
+        tr.append(td);
+        ins.before(tr);
+    }    
+    function elimAct(){
+        var intf = $(this).attr('vl');
+        $('#tr'+intf).remove();
+    }
+    function listartipopisos() {
+        $.ajax({
+            'url': 'listartipopisos',
+            'type': 'POST',
+            'error': error,
+            'success': function(data) {
+                data = $(JSON.parse(data))
+                var content = $('#cbotipopisoAct');
+                content.html('');
+                data.each(function(i, item) {
+                    var d2 = $('<option>').text(item.nombre);
+                    d2.attr('value', item.codigo);
+                    content.append(d2);
+                });
+            }
+        });
     }
 
-    function popupciudad() {
+    function cancelarVenta() {
+        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+        $('#txtVenta').val('');
+        //listarCiudades();
+    }
+    function popupVenta() {
         var type = $(this).attr('data-type');
 
-        $('.overlay-container').fadeIn(function() {
+        $('#winVenta').fadeIn(function() {
             window.setTimeout(function() {
                 $('.window-container.' + type).addClass('window-container-visible');
             }, 100);
         });
     }
+    function cancelarCiudad() {
+        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+        $('#txtCiudad').val('');
+        listarCiudades();
+    }
+    function popupciudad() {
+        var type = $(this).attr('data-type');
 
-    $('#btnGuardarCiudad').on('click', insertarciudad);
-
+        $('#winCiudad').fadeIn(function() {
+//        $('.overlay-container').fadeIn(function() {
+            window.setTimeout(function() {
+                $('.window-container.' + type).addClass('window-container-visible');
+            }, 100);
+        });
+    }
     function insertarciudad() {
         var txtCiudad = $('#txtCiudad').val();
         $.ajax({
@@ -46,7 +112,6 @@
             }
         });
     }
-
     function limpiarinformacion() {
         $('#txtNombre').val('');
         $('#txtFechaIni').val('');
@@ -59,9 +124,6 @@
         $('#txtFechaIni').val(cf.hoy());
         $('#txtFechaFin').val(cf.hoy());
     }
-
-    init();
-
     function init() {
 
         var vm = new validadores();
@@ -71,20 +133,19 @@
         var cf = new ControlFecha();
         $('#txtFechaIni').val(cf.hoy());
         $('#txtFechaFin').val(cf.hoy());
-        $('#txtFechaIni').blur(function(){
+        $('#txtFechaIni').blur(function() {
             var vf = new ControlFecha();
-            if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+            if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
                 $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
             }
         });
-        $('#txtFechaFin').blur(function(){
+        $('#txtFechaFin').blur(function() {
             var vf = new ControlFecha();
-            if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+            if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
                 $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
             }
         });
     }
-
     function listarCiudades() {
         $.ajax({
             'url': 'listarciudades',
@@ -102,7 +163,6 @@
             }
         });
     }
-
     function insertar() {
         var txtNombre = $('#txtNombre').val();
         var cboCiudad = $('#cboCiudad').val();
@@ -139,7 +199,6 @@
         });
 
     }
-
     function error(error) {
         console.error(error);
     }
@@ -165,9 +224,9 @@
         var v = new validaciones();
         var res = v.fntValidar(ob);
         var vf = new ControlFecha();
-        if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+        if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
             $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
-            res=false;
+            res = false;
         }
         if (res) {
             insertar();

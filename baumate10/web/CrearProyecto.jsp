@@ -26,17 +26,28 @@
                         Nombre
                         <input name="txtNombre" type="text" id="txtNombre" lbl="lblnombre">
                         <label id="lblnombre" class="lblestil"></label> <br>
-
                         Ciudad
                         <select name="cboCiudad" id="cboCiudad">
-                        </select> <input id="btnAddCiudad" value="+" type="button" data-type="zoomin">
-                        <div class="overlay-container">
-                            <div class="window-container zoomin" >
+                        </select> <input id="btnAddCiudad" value="+" type="button" data-type="zoomin"><br>
+                        <div class="overlay-container" id="winCiudad" >
+                            <div class="window-container zoomin">
                                 <p>Nombre de la Ciudad:</p>
                                 <input name="txtCiudad" type="text" id="txtCiudad" lbl="lblCiudad">
                                 <label id="lblCiudad" class="lblestil"></label><br>
                                 <input type="button" id="btnGuardarCiudad" value="Guardar">
                                 <input type="button" value="cancelar" id="btnCancelarCiudad" />
+                            </div>
+                        </div>
+                        Venta
+                        <label id="txtVenta"></label>
+                        <input id="btnAddVenta" value="+" type="button" data-type="zoomin">
+                        <div class="overlay-container" id="winVenta">
+                            <div class="window-container zoomin" >
+                                <p>Numero de Registro de la Venta:</p>
+                                <input name="txtVenta" type="text" id="txtVenta" lbl="lblVenta">
+                                <label id="lblVenta" class="lblestil"></label><br>
+                                <input type="button" id="btnGuardarVenta" value="Guardar">
+                                <input type="button" value="cancelar" id="btnCancelarVenta" />
                             </div>
                         </div>
                         <br>
@@ -55,9 +66,30 @@
                         Presupuesto
                         <input name="txtPresupuesto" type="text" id="txtPresupuesto" lbl="lblpresupuesto">
                         <label id="lblpresupuesto" class="lblestil"></label><br>
-
                         <input name="txtIdEmpleado" type="hidden" id="txtIdEmpleado">
-
+                        <h3>Actividades</h3>
+                        <table id="tblActividades" >
+                            <tr id="tituloActividades">
+                                <td>Descripcion</td>
+                                <td>Área</td>
+                                <td>Tipo de Piso</td>
+                                <td>funciones</td>
+                            </tr>
+                            <tr id="insActividades">
+                                <td>
+                                    <input id="txtDescripcionAct" type="text">
+                                </td>
+                                <td>
+                                    <input id="txtAreaAct" type="text">
+                                </td>
+                                <td>
+                                    <select id="cbotipopisoAct"></select>
+                                </td>
+                                <td>
+                                    <input id="btnAgregarAct" type="button" value="+">
+                                </td>
+                            </tr>
+                        </table>
                         <input type="button" id="btnLimpiar" value="Cancelar">
                         <input type="button" id="btnGuardar" value="Guardar">
                     </div>
