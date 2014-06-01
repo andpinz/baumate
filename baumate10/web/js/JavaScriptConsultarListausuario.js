@@ -46,11 +46,13 @@
         var idrol=$('#idrol').val();
         var estado=$('#estado').val();
         var idempleado=$('#idempleado').val();
-        if (contrasena=="Contraseña"&&contrasena2=="Confirmar contraseña"){
+        if(correo==""){
+            alertify.log("Por favor ingrese un correo.");
+        }else if (contrasena==""&&contrasena2==""){
             alertify.error("<b>Error-campos obligatorios:</b><br>Contraseña y Confirmar contraseña son campos obligatorios.");
-        }else if(contrasena2=="Confirmar contraseña"){
-            alertify.log("Por favor confirme su contraseña.");
-        }else if(contrasena=="Contraseña"){
+        }else if(contrasena2==""){
+            alertify.log("Por favor confirme la contraseña.");
+        }else if(contrasena==""){
             alertify.log("Por favor ingrese una contraseña.");
         }else if(contrasena2!=contrasena){
             alertify.log("Las contraseñas no coinciden, por favor verifiquelas e intente de nuevo.");
@@ -69,7 +71,6 @@
                     'success': function (data){
                         if(data==1){
                             alertify.ok("El usuario fue creado correctamente.");
-                            setTimeout("location.href='nuevousuario.jsp'", 1000);
                         }else{
                             alertify.error("<b>Error-usraio no creado:</b><br>No se pudo crear el usuario, por favor verifique la informacion e intente de nuevo.");
                         }

@@ -26,8 +26,8 @@
                 <input type="text"  id="correo" placeholder="Correo"/>
                 <input type="password"  id="contrasena2" placeholder="Contraseña"/>
                 <input type="password"  id="contrasena2" placeholder="Confirmar contraseña"/>
-                <select  id="idrol"></select>
-		<select  id="idempleado"></select>
+                <h4>Rol de usuario:<select  id="idrol"></select></h4>
+                <h4>Usuario de empleado:<select  id="idempleado"></select></h4>
                 <input type="button" id="btnCrearu" value="Crear Usuario" >
             <input type="button" id="btnCancelaru" value="Cancelar" >
             </div>

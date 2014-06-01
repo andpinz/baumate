@@ -32,8 +32,13 @@ box-shadow: 8px 9px 20px #000000;
     float: right;
     margin-right: 4%;
 }
-#btnCancelar, #btnCancelaru{
+#btnCancelar{
     float: left;
+    color: #6E6C5B;
+  background: #FFFF33;
+}
+#btnCancelaru{
+/*    float: right;*/
     color: #6E6C5B;
   background: #FFFF33;
 }
@@ -41,6 +46,13 @@ box-shadow: 8px 9px 20px #000000;
     float: left;
     background: #6E6C5B;
   color: #fff;
+}
+#correo, #contrasena, #contrasena2{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+h4{
+float: left;
 }
 #buscar{
     float: right;
@@ -50,6 +62,9 @@ box-shadow: 8px 9px 20px #000000;
   float: none;
   height: auto;
   padding: 2%;
+}
+#idrol, #idempleado{
+    margin-right: 2%;
 }
 select {
   padding: 0;
