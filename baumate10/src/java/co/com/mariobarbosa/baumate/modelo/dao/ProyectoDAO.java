@@ -220,4 +220,33 @@ public class ProyectoDAO extends Conexion{
         }
     }
     /// } JC 16/03/2014
+    
+    public ProyectoVO consultarUltimo(){
+        ProyectoVO respuesta = null;
+        try {
+            conectar();
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado FROM proyecto where estado=1 order by idproyecto desc Limit 1");
+            ResultSet res = sentencia.executeQuery();
+            while (res.next()) {
+                respuesta = new ProyectoVO();
+                respuesta.setIdproyecto(res.getInt("idproyecto"));
+                respuesta.setNombre(res.getString("Nombre"));
+                respuesta.setIdciudad(new CiudadDAO().consultar(res.getInt("idciudad")));
+                respuesta.setFechainicio(res.getDate("fechainicio").toString());
+                respuesta.setFechafinal(res.getDate("fechafinal").toString());
+                respuesta.setDireccion(res.getString("direccion"));
+                respuesta.setEstado(res.getInt("estado"));
+                respuesta.setGanancias(res.getDouble("ganancias"));
+                respuesta.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                //proyecto.setIdempleado();
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            desconectar();
+            return respuesta;
+        }
+    }
+    
 }

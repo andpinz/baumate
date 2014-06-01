@@ -77,7 +77,7 @@
                             </tr>
                             <tr id="insActividades">
                                 <td>
-                                    <input id="txtDescripcionAct" type="text">
+                                    <textArea id="txtDescripcionAct"></textarea>
                                 </td>
                                 <td>
                                     <input id="txtAreaAct" type="text">

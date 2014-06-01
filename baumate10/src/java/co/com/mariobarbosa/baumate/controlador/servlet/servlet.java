@@ -1819,7 +1819,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         String ganancia = request.getParameter("ganancia");
         String presupuesto = request.getParameter("presupuesto");
         String idempleado = request.getParameter("idempleado");
-        
+        String arract = request.getParameter("actividades");
         int resp = -1;
         
         try {
@@ -1835,6 +1835,21 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             proyect.setTotalPresupuesto(Double.parseDouble(presupuesto));
             
             resp = new ProyectoDAO().insertar(proyect);
+            if (! (arract.equals("") && resp > 0)) {
+                ProyectoVO pryult = new ProyectoDAO().consultarUltimo();
+                ArrayList<String []> listAct = new ArrayList<String []>();
+                listAct = new Gson().fromJson(arract, (new TypeToken<ArrayList<String []>>(){}.getType() ));
+                for (String[] itemStr : listAct) {
+                    if (resp > 0) {
+                        ActividadesVO act = new ActividadesVO();
+                        act.setArea(Integer.parseInt(itemStr[1]));
+                        act.setDescripcion(itemStr[0]);
+                        act.setIdtipopiso(new TiposPisosDAO().consultar(Integer.parseInt(itemStr[2])));
+                        act.setIdproyecto(pryult);
+                        resp= new ActividadesDAO().insertar(act);                        
+                    }
+                }
+            }
             
         } catch (Exception e) {
             e.printStackTrace();
