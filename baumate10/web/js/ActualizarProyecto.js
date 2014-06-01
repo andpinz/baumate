@@ -18,6 +18,21 @@
             consultarProyecto(str);
             cc.eliminar("idproyectomod");
         }
+        var cf = new ControlFecha();
+        $('#txtFechaIni').val(cf.hoy());
+        $('#txtFechaFin').val(cf.hoy());
+        $('#txtFechaIni').blur(function(){
+            var vf = new ControlFecha();
+            if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+                $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
+            }
+        });
+        $('#txtFechaFin').blur(function(){
+            var vf = new ControlFecha();
+            if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+                $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
+            }
+        });
     }
 
     function consultarProyecto(str) {
@@ -266,6 +281,11 @@
         ]);
         var v = new validaciones();
         var res = v.fntValidar(ob);
+        var vf = new ControlFecha();
+        if (!(vf.comparar($('#txtFechaFin').val(),$('#txtFechaIni').val()))) {
+            $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
+            res=false;
+        }
         if (res) {
             modificar();
         }

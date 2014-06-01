@@ -38,7 +38,8 @@
             </div>
         </div> 
         Fecha de Inicio:<input name="txtFechaIni" type="date" id="txtFechaIni"> <br>
-        Fecha Final:<input name="txtFechaFin" type="date" id="txtFechaFin"> <br>
+        Fecha Final:<input name="txtFechaFin" type="date" id="txtFechaFin"> 
+        <label id="lblfecha" class="lblestil"></label><br>
         Direccion:<input name="txtDireccion" type="text" id="txtDireccion" lbl="lbldireccion"><br>
         <label id="lbldireccion" class="lblestil"></label>
         Ganancias:<input name="txtGanancias" type="text" id="txtGanancias"> <br>
