@@ -16,6 +16,7 @@
         var str = cc.consultarRefinado("idproyectomod");
         if (str != "" && str != undefined) {
             consultarProyecto(str);
+            cc.eliminar("idproyectomod");
         }
     }
 
