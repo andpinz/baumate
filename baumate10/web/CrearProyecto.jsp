@@ -43,7 +43,9 @@
                         Fecha de inicio 
                         <input name="txtFechaIni" type="date" id="txtFechaIni"> <br>
                         Fecha de final 
-                        <input name="txtFechaFin" type="date" id="txtFechaFin"> <br>
+                        <input name="txtFechaFin" type="date" id="txtFechaFin"> 
+                        <label id="lblfecha" class="lblestil"></label>
+                        <br>
                         Direcciòn 
                         <input name="txtDireccion" type="text" id="txtDireccion" lbl="lbldireccion"> 
                         <label id="lbldireccion" class="lblestil"></label><br><!--
