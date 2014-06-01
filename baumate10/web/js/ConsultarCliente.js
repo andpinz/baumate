@@ -66,7 +66,16 @@
             'type':'POST',
             'error':error,
             'success': function(data) {
+//                if (data==1) {
+//                    alertify.log('Cliente consultado');
+//                 
+//                  } else{
+//                     alertify.error('El documento no existe');
+//                }
+               
                 data = $(JSON.parse(data));
+                
+                
                 var content = $('#tbldocumento');
                 content.html('');
                     var d2 = $('<tr>');
@@ -82,7 +91,8 @@
                     d2.append(td);
                    
                     content.append(d2);
-                    
+                  
+                     
                 data.each(function(i,item){
                     var d2 = $('<tr>');
                     
@@ -98,7 +108,10 @@
                     d2.append(td);
                     content.append(d2);
                     
+                    
                 });
+                
+            
             }
         });
     }

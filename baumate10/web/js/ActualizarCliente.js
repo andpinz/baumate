@@ -92,7 +92,6 @@
                     $('#txtDireccion').val(item.direccion);
                     $('#txtTelefono').val(item.telefono);
                     $('#txtEstado').val(item.estado);
-                    
                 });
             }
         });
