@@ -113,7 +113,7 @@ import net.sf.jasperreports.engine.JasperRunManager;
                                             "/buscarsolicitud","/modificarsolicitud","/eliminarsolicitud","/consultarcolicitudasignada","/modificarsolicitudasignada",
 
                                             "/rep1" ,"/modificarSolicitudFechaRecibido","/consultarsolicasignadas","/modificarsolicasignadas",
-                                            "/insertarciudad"})
+                                            "/insertarciudad","/cargarcliente" })
 public class servlet extends HttpServlet {
 
     /**
@@ -398,9 +398,11 @@ public class servlet extends HttpServlet {
             
             else if (url.contains("insertarciudad")){
                 insertarCiudad(request, response, out);
-            }
             
+             }else if (url.contains("cargarcliente")) {
+                cargarcliente(request, response, out);
             
+             }
     
                
         } finally {
@@ -972,7 +974,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             out.print( new Gson().toJson(clie) );
         }
     }
-  private void insertarcliente(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+   private void insertarcliente(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
         
@@ -1009,9 +1011,20 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         }
     }
 
+   private void cargarcliente(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+       ArrayList<ClienteVO> clien = new ArrayList<ClienteVO>();
+        try {
+            clien = new ClienteDAO().listar();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print( new Gson().toJson(clien) );
+        }
+    }
+
  private void actualizarcliente(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-      String id = request.getParameter("idcliente");  
+//      String id = request.getParameter("idcliente");  
      String documento = request.getParameter("documento");
         String tipodocumento = request.getParameter("tipodocumneto");
         String primernombre = request.getParameter("primernombre");
@@ -1035,7 +1048,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             cliente.setDireccion(direccion);
             cliente.setTelefono(telefono);
             cliente.setEstado(Integer.parseInt(estado));
-            cliente.setIdCliente(Integer.parseInt(id));
+//            cliente.setIdCliente(Integer.parseInt(id));
                       
             resp = new ClienteDAO().modificar(cliente);
             

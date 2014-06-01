@@ -18,7 +18,7 @@ public class ClienteDAO extends Conexion{
         int respuesta = -1;
        try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("update cliente set tipodocumento=?,primerNombre=?,SegundoNombre=?,PrimerApellido=?,SegundoApellido=?, direccion=?, telefono=?, estado=?, Documento=?  where idCliente=?");
+            PreparedStatement sentencia = conectar.prepareStatement("update cliente set tipodocumento=?,primerNombre=?,SegundoNombre=?,PrimerApellido=?,SegundoApellido=?, direccion=?, telefono=?, estado=?  where Documento=?");
             sentencia.setInt(1, data.getIdtipoIdentificacion().getIdtipoIdentificacion());
             sentencia.setString(2, data.getPrimerNombre());
             sentencia.setString(3, data.getSegundoNombre());
@@ -28,7 +28,7 @@ public class ClienteDAO extends Conexion{
             sentencia.setString(7, data.getTelefono());
             sentencia.setInt(8, data.getEstado());
             sentencia.setString(9, data.getDocumento());
-            sentencia.setInt(10, data.getIdCliente());
+//            sentencia.setInt(10, data.getIdCliente());
                     
             respuesta = sentencia.executeUpdate();
             
@@ -73,7 +73,7 @@ public class ClienteDAO extends Conexion{
         ClienteVO cliente = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idCliente, Documento,tipodocumento,primerNombre,SegundoNombre,PrimerApellido,SegundoApellido, direccion, telefono,estado FROM cliente");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idCliente, Documento,tipodocumento,primerNombre,SegundoNombre,PrimerApellido,SegundoApellido, direccion, telefono,estado FROM cliente where estado=1");
                         
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
@@ -168,7 +168,7 @@ public class ClienteDAO extends Conexion{
         ClienteVO cliente = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idCliente, Documento,tipodocumento,primerNombre,SegundoNombre,PrimerApellido,SegundoApellido, direccion, telefono, estado FROM cliente where Documento=? and estado=1");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idCliente, Documento,tipodocumento,primerNombre,SegundoNombre,PrimerApellido,SegundoApellido, direccion, telefono, estado FROM cliente where Documento=?");
             
             sentencia.setString(1, documento);
             ResultSet res = sentencia.executeQuery();
@@ -184,6 +184,7 @@ public class ClienteDAO extends Conexion{
                 cliente.setDireccion(res.getString("direccion"));
                 cliente.setTelefono(res.getString("telefono"));
                 cliente.setEstado(res.getInt("estado"));
+          
             
             }
             
@@ -202,6 +203,37 @@ public class ClienteDAO extends Conexion{
             
             sentencia.setString(1, documento);
             respuesta = sentencia.executeUpdate();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            desconectar();
+            return respuesta;
+        }
+    } 
+     public ArrayList<ClienteVO> listarclientes(){
+        ArrayList<ClienteVO> respuesta = new ArrayList<ClienteVO>();
+        ClienteVO cliente = null;
+        try {
+            conectar();
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT * FROM cliente where estado=1");
+             
+            ResultSet res = sentencia.executeQuery();
+            while (res.next()) {
+                cliente = new ClienteVO();
+                cliente.setIdCliente(res.getInt("idcliente"));
+                cliente.setDocumento(res.getString("documento"));
+                cliente.setIdtipoIdentificacion(new TipoIdentificacionDAO().consultar(res.getInt("tipodocumento")));
+                cliente.setPrimerNombre(res.getString("primernombre"));
+                cliente.setSegundoNombre(res.getString("segundonombre"));
+                cliente.setPrimerApellido(res.getString("primerapellido"));
+                cliente.setSegundoApellido(res.getString("segundoapellido"));
+                cliente.setDireccion(res.getString("direccion"));
+                cliente.setTelefono(res.getString("telefono"));
+                cliente.setEstado(res.getInt("estado"));
+                
+                respuesta.add(cliente);
+            }
             
         } catch (Exception e) {
             e.printStackTrace();
