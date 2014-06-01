@@ -62,6 +62,7 @@
                         <li class='has-sub'><a href='EliminarCliente.jsp'><span>Eliminar Cliente</span></a>
                         <li class='has-sub'><a href='ActualizarCliente.jsp'><span>Modificar Cliente</span></a>
                         <li class='has-sub'><a href='CrearCliente.jsp'><span>Nuevo Cliente</span></a>
+                        <li class='has-sub'><a href='GestionarCliente.jsp'><span>Nuevo Cliente</span></a>
                         </li>
                     </ul>
                 </li>
