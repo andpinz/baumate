@@ -6,7 +6,8 @@ function validadores() {
         var valo = $(this).val();
         if (!/^[a-z A-Z]*$/.test(valo)) {
 
-            $('#' + text).text("Este campo solo puede contener letras");
+            $('#' + text).text;
+            alertify.error("Este campo solo puede contener letras");
 
 
             return false;
@@ -19,7 +20,8 @@ function validadores() {
         var camp = $(this).attr('lbl');
         var valor = $(this).val();
         if (!/^[0-9 a-z A-z]*$/.test(valor)) {
-            $('#' + camp).text("Este campo no puede contener caracteres especiales como: (*,.-+/%)");
+            $('#' + camp).text;
+            alertify.error("Este campo no puede contener caracteres especiales como: (*,.-+/%)");
 
             return false;
         } else {
@@ -33,10 +35,12 @@ function validadores() {
         var valor = $(this).val();
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + camp).text("El campo no puede estar vacio");
+            $('#' + camp).text;
+            alertify.error("El campo no puede estar vacìo");
         }
         else if (!/^[0-9 a-z A-z]*$/.test(valor)) {
-            $('#' + camp).text("Este campo no puede contener caracteres especiales como: (*,.-+/%)");
+            $('#' + camp).text;
+            alertify.log("Este campo no puede contener caracteres especiales como: (*,.-+/%)");
             return false;
         } else {
             $('#' + camp).text("");
@@ -48,7 +52,8 @@ function validadores() {
         var valor = $(this).val();
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + camvac).text("El campo no puede estar vacio");
+            $('#' + camvac).text;
+            alertify.error("El campo no puede estar vacìo");
             return false;
         } else {
             $('#' + camvac).text("");
@@ -61,10 +66,12 @@ function validadores() {
         var valor = $(this).val();
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + letrasvacios).text("El campo no puede estar vacio");
+            $('#' + letrasvacios).text;
+            alertify.error("El campo no puede estar vacìo");
         }
         else if (!/^[a-z A-Z]*$/.test(valor)) {
-            $('#' + letrasvacios).text("Este campo solo puede contener letras");
+            $('#' + letrasvacios).text;
+            alertify.error("Este campo solo puede contener letras");
             return false;
         } else {
             $('#' + letrasvacios).text("");
@@ -76,7 +83,8 @@ function validadores() {
         var numerosvacios = $(this).attr('lbl');
         var valor = $(this).val();
         if (!/^(\d{2}\.)?(\d+\.?)+(,\d{2})?$/.test(valor)) {
-            $('#' + numerosvacios).text("Este campos solo acepta nùmeros enteros con dos decimales");
+            $('#' + numerosvacios).text;
+            alertify.error("Este campos solo acepta nùmeros enteros con dos decimales");
 
          return false;
         } else {
@@ -113,7 +121,8 @@ function validaciones() {
     function validarletras(valo,textlbl) {
         var text = textlbl;
         if (!/^[a-z A-Z]*$/.test(valo)) {
-            $('#' + text).text("Este campo solo puede contener letras");
+            $('#' + text).text;
+            alertify.error("Este campo solo puede contener letras");
             return false;
         } else {
             $('#' + text).text("");
@@ -124,7 +133,8 @@ function validaciones() {
     function validarcamposvacios(valor,camvac) {
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + camvac).text("El campo no puede estar vacio");
+            $('#' + camvac).text;
+            alertify.error("El campo no puede estar vacìo");
             return false;
         } else {
             $('#' + camvac).text("");
@@ -134,7 +144,7 @@ function validaciones() {
     function validarletrascamposvacios(valor,letrasvacios) {
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + letrasvacios).text("El campo no puede estar vacio");
+            $('#' + letrasvacios).text("El campo no puede estar vacìo");
         }
         else if (!/^[a-z A-Z]*$/.test(valor)) {
             $('#' + letrasvacios).text("Este campo solo puede contener letras");
@@ -166,7 +176,7 @@ function validaciones() {
     function caracterecamposvacios(valor, numeros) {
         if (valor === null || valor.length === 0 ||
                 /^\s+$/.test(valor)) {
-            $('#' + numeros).text("El campo no puede estar vacio");
+            $('#' + numeros).text("El campo no puede estar vacìo");
         }
         else if (!/^[0-9 a-z A-z]*$/.test(valor)) {
             $('#' + numeros).text("Este campo no puede contener caracteres especiales como: (*,.-+/%)");

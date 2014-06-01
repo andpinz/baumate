@@ -68,7 +68,7 @@
         $('#txtSegundoApellido').blur(vm.validarletras);
         $('#txtDocumento').blur(vm.validarcamposvacios);
 //        $('#txtEstado').blur(vm.validarnumerocamposvacios);
-        $('#txtTelefono').blur(vm.validarnumerocamposvacios);
+//        $('#txtTelefono').blur(vm.validarnumerocamposvacios);
         $('#txtDocumento').blur(vm.caracterecamposvacios);
     }
 
@@ -118,11 +118,11 @@
             'error': error,
             'success': function(data) {
                 if (data == 1) {
-                    alert('Se logro crear el cliente satisfactoriamente');
-                    setTimeout("location.href='administrador.jsp'", 500);
+                     alertify.log('Se logro crear el cliente satisfactoriamente');
+                              
                     
                 } else {
-                    alert('no se logro crear el cliente');
+                     alertify.error('No se logro crear el cliente, es posible que el documento ya exista');
                 }
             }
         });
@@ -164,11 +164,11 @@
                 'tip': 2//1=numeros,2=letras,3=vacios,4=validarletrascamposvacios,5=validarnumerocamposvacios
                 ,'lbl' : 'lblsegundoapellido'
             },
-             {
-                'nom': 'txtTelefono',
-                'tip': 5 //1=numeros,2=letras,3=vacios,4=validarletrascamposvacios,5=validarnumerocamposvacios
-                ,'lbl' : 'lbltelefono'
-            }
+//             {
+//                'nom': 'txtTelefono',
+//                'tip': 5 //1=numeros,2=letras,3=vacios,4=validarletrascamposvacios,5=validarnumerocamposvacios
+//                ,'lbl' : 'lbltelefono'
+//            }
            
         ]);
         var v = new validaciones();
