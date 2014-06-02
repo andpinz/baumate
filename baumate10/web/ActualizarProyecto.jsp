@@ -26,9 +26,9 @@
         <label id="lblnombre" class="lblestil"></label>
         Ciudad:<select name="cboCiudad" id="cboCiudad">
         </select>
-        <input id="btnAddCiudad" value="+" type="button" data-type="zoomin"><br>
-        <input type="button" id="btnBuscarId" value="Buscar">
-        <div  class="overlay-container">
+        <input id="btnAddCiudad" value="+" type="button" data-type="zoomin">
+        <input type="button" id="btnBuscarIdProy" value="Buscar proyecto" data-type="zoomin">
+        <div  class="overlay-container" id="winCiudad">
             <div class="window-container zoomin" >
                 <p>Nombre de la Ciudad:</p>
                 <input name="txtCiudad" type="text" id="txtCiudad" lbl="lblCiudad">
@@ -37,23 +37,73 @@
                 <input type="button" value="cancelar" id="btnCancelarCiudad" />
             </div>
         </div> 
+        <div  class="overlay-container" id="winProyectos">
+            <div class="window-container zoomin" >
+                Nombre de Proyecto:
+                <input name="txtNombreBs" type="text" id="txtNombreBs" lbl="lblnombre">
+                <label id="lblnombre" class="lblestil"></label>
+                Ciudad:<select name="cboCiudad2" id="cboCiudad2">
+                </select>
+                <input type="button" id="btnBuscarId" value="Buscar">
+                <input type="button" value="cancelar" id="btnCancelarProy" />
+                <table id="tblProyectos">
+                </table>
+            </div>
+        </div> 
+        <br>
+        Venta
+        <input id="hdidventa" type="hidden">
+        <label id="txtVenta"></label>
+        <input id="btnAddVenta" value="+" type="button" data-type="zoomin">
+        <div class="overlay-container" id="winVenta">
+            <div class="window-container zoomin" >
+                <p>Numero de Registro de la Venta:</p>
+                <input name="txtVenta" type="text" id="txtVenta" lbl="lblVenta">
+                <label id="lblVenta" class="lblestil"></label><br>
+                <input type="button" id="btnGuardarVenta" value="Guardar">
+                <input type="button" value="cancelar" id="btnCancelarVenta" />
+            </div>
+        </div>
+        <br>
         Fecha de Inicio:<input name="txtFechaIni" type="date" id="txtFechaIni"> <br>
         Fecha Final:<input name="txtFechaFin" type="date" id="txtFechaFin"> 
         <label id="lblfecha" class="lblestil"></label><br>
         Direccion:<input name="txtDireccion" type="text" id="txtDireccion" lbl="lbldireccion"><br>
         <label id="lbldireccion" class="lblestil"></label>
-        Ganancias:<input name="txtGanancias" type="text" id="txtGanancias"> <br>
+        <!--Ganancias:<input name="txtGanancias" type="text" id="txtGanancias"> <br>-->
         Presupuesto:<input name="txtPresupuesto" type="text" id="txtPresupuesto" lbl="lblpresupuesto"><br>
         <label id="lblpresupuesto" class="lblestil"></label> <br>
-        <input name="txtIdEmpleado" type="hidden" id="txtIdEmpleado"><br>
+        <input name="txtIdEmpleado" type="hidden" id="txtIdEmpleado">
+        <h3>Actividades</h3>
+        <table id="tblActividades" >
+            <tr id="tituloActividades">
+                <td>Descripcion</td>
+                <td>Área</td>
+                <td>Tipo de Piso</td>
+                <td>funciones</td>
+            </tr>
+            <tr id="insActividades">
+                <td>
+                    <textArea id="txtDescripcionAct"></textarea>
+                </td>
+                <td>
+                    <input id="txtAreaAct" type="text">
+                </td>
+                <td>
+                    <select id="cbotipopisoAct"></select>
+                </td>
+                <td>
+                    <input id="btnAgregarAct" type="button" value="+">
+                </td>
+            </tr>
+        </table>
+        <br>
         <div id="botones">
             <p>
                 <input type="button" id="btnLimpiar" value="Cancelar">
                 <input type="button" id="btnGuardar" value="Guardar">
             </p>
         </div>
-        <table id="tblProyectos">
-        </table>
 
         <script src="js/validaciones.js" type="text/javascript"></script>
         <script src="js/ActualizarProyecto.js" type="text/javascript"></script>

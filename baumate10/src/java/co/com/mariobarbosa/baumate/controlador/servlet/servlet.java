@@ -1785,6 +1785,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         String presupuesto = request.getParameter("presupuesto");
         String idempleado = request.getParameter("idempleado");
         
+        String arract = request.getParameter("actividades");
         int resp = -1;
         
         try {
@@ -1802,6 +1803,26 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             
             resp = new ProyectoDAO().modificar(proyect);
             
+            if (! (arract.equals("") && resp > 0)) {
+                //ProyectoVO pryult = new ProyectoDAO().consultarUltimo();
+                ArrayList<String []> listAct = new ArrayList<String []>();
+                listAct = new Gson().fromJson(arract, (new TypeToken<ArrayList<String []>>(){}.getType() ));
+                for (String[] itemStr : listAct) {
+                    if (resp > 0) {
+                        ActividadesVO act = new ActividadesVO();
+                        act.setArea(Integer.parseInt(itemStr[1]));
+                        act.setDescripcion(itemStr[0]);
+                        act.setIdtipopiso(new TiposPisosDAO().consultar(Integer.parseInt(itemStr[2])));
+                        act.setIdproyecto(proyect);
+                        if (!(itemStr[3].equals(""))) {// id
+                            act.setCodigo(Integer.parseInt(itemStr[3]));
+                            resp = new ActividadesDAO().modificar(act);
+                        }else{
+                            resp= new ActividadesDAO().insertar(act);                        
+                        }
+                    }
+                }
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }finally{

@@ -39,6 +39,7 @@
                             </div>
                         </div>
                         Venta
+                        <input id="hdidventa" type="hidden">
                         <label id="txtVenta"></label>
                         <input id="btnAddVenta" value="+" type="button" data-type="zoomin">
                         <div class="overlay-container" id="winVenta">
