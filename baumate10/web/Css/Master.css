@@ -363,7 +363,6 @@ border-radius: 3px;
   font-size: 17px;
   font-weight: bold;
 }
-
 input[type="button"]:hover, input[type="button"]:active {
     border: 2px solid #66665e;
   cursor: pointer;
@@ -371,7 +370,6 @@ input[type="button"]:hover, input[type="button"]:active {
   color: #000000;
 }
 input[type="text"],input[type="password"]{
-
 font-weight: bold;
 color: #7F7F7F;
 font-size: .7em;

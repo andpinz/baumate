@@ -11,7 +11,6 @@
 -webkit-box-shadow: 5px 6px 20px #000000;
 box-shadow: 5px 6px 20px #000000;
 }
-
 #formularioc{
   alignment-adjust: central;
   float: none;
@@ -29,39 +28,20 @@ box-shadow: 5px 6px 20px #000000;
     float: right;
     margin-right: 4%;
 }
-/*#btnCancelaru{
-    float: left;
-}*/
 #correo, #contrasena, #contrasena2{
     margin-left: 5%;
     margin-bottom: 2%;
 }
-/*h4{
-float: left;
-}*/
 #buscar{
     float: right;
 }
-
 #idrol, #idempleado{
     margin-right: 2%;
 }
-
 table{ 
     border-collapse: separate;
    border-spacing: 2px;
    background-color: #66665e;
-/*    cellspacing:0px;*/
 width: 100%;
 height:auto;
 }
-
-
-/*tr:first-child td:first-child{
-  border-width:1px 1px 1px 1px;
-}
-tr:first-child td:last-child{
-  border-width:1px 1px 1px 1px;
-}*/
-
-
