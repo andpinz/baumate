@@ -1,7 +1,7 @@
 .overlay-container {
     display: none;
     content: " ";
-    height: 100%;
+    height: auto;
     width: 100%;
     position: absolute;
     left: 0;
@@ -18,8 +18,8 @@
 .window-container {
     display: block;
     background: #fcfcfc;
-    margin: 8em auto;
-    width: 500px;
+    margin: 15em auto;
+    width: auto;
     padding: 10px 20px 20px;
     text-align: left;
     z-index: 3;
