@@ -3,14 +3,50 @@
     $('#btnGuardar').on('click',valing);
     $('#btntraerdatos').on('click',consultarventa);
     $('#btnLimpiar').on('click',limpiar);
-    
     init();
+    init2();
+    
     function init(){
         var vm = new validadores();
         //$('#txtidvent').blur(vm.validarnumerocamposvacios);
         $('#txtNombreventa').blur(vm.validarcamposvacios);
         $('#txtidentificacion').blur(vm.validarcamposvacios);
         $('#txtvalor').blur(vm.validarnumerocamposvacios);
+    }
+    
+    function valing(){
+        var ob=$([
+            {
+                'nom':'txtNombreventa',
+                'tip': 3,
+                'lbl': 'lblNombreventa'
+            },
+            {
+                'nom':'txtidentificacion',
+                'tip': 3,
+                'lbl': 'lblidentificacion'
+            },
+            {
+                'nom':'txtvalor',
+                'tip': 5,
+                'lbl': 'lblvalor'
+            }
+        ]);
+        var v = new validaciones();
+        var res = v.fntValidar(ob);
+        if (res) {
+          modificar();
+        }
+    }
+    
+    
+    function init2() {
+        var cc = new ControlCookies();
+        var str = cc.consultarRefinado("identiventa");
+        if (str != "" && str != undefined) {
+            consultarventas(str);
+            cc.eliminar("identiventa");
+        }
     }
     
     function listarclientes(){
@@ -31,6 +67,103 @@
         });
     } 
     
+    function consultarventa(){
+        //var id = $(this).attr('vl');
+        var identificacion = $('#txtidentificacion').val();
+        $.ajax({
+            'url':'consultarventa',
+            'data':{
+                'identiventa': identificacion
+            },
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+                data = $(JSON.parse(data));
+                data.each(function(i,item){
+                    $('#txtidvent').val(item.idventa);
+//                    $('#txtidentificacion').val(item.identificacion);
+                    $('#txtNombreventa').val(item.nombreventa);
+                    $('#txtfecha').val(item.fecha);
+                    $('#txtvalor').val(item.valor);
+                    $('#cboidcliente').val(item.idCliente.idcliente);
+                    $('#cboestado').val(item.estado);
+                });
+            }
+        });
+    } 
+    
+    function consultarventas(srt){
+        $.ajax({
+            'url':'consultarventa',
+            'data':{
+                'identiventa': srt
+            },
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+                data = $(JSON.parse(data));
+                data.each(function(i,item){
+                    $('#txtidvent').val(item.idventa);
+                    $('#txtidentificacion').val(item.identificacion);
+                    $('#txtNombreventa').val(item.nombreventa);
+                    $('#txtfecha').val(item.fecha);
+                    $('#txtvalor').val(item.valor);
+                    $('#cboidcliente').val(item.idcliente.idCliente);
+                    $('#cboestado').val(item.estado);
+                });
+            }
+        });
+    }
+    
+    function limpiar(){
+          $("#txtidvent").val("");  
+          $("#txtNombreventa").val("");  
+          $("#txtfecha").val("");  
+          $("#txtidentificacion").val("");  
+          $("#txtvalor").val("");  
+          $("#cboidcliente").val("");  
+          $("#cboestado").val("");  
+     }
+    
+    function modificar(){
+        var idventa= $('#txtidvent').val();
+        var txtNombreventa = $('#txtNombreventa').val();
+        var txtfecha = $('#txtfecha').val();
+        var txtidentificacion = $('#txtidentificacion').val();
+        var txtvalor = $('#txtvalor').val();
+        var cbocliente = $('#cboidcliente').val();
+        var cboestado = $('#cboestado').val();
+        $.ajax({
+            'url':'modificarventa',
+            'data':{
+                'idventa': idventa,
+                'nombreventa':txtNombreventa,
+                'fecha':txtfecha,
+                'identificacion':txtidentificacion,
+                'valor':txtvalor,
+                'cliente':cbocliente,
+                'estado':cboestado
+            },
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+                if (data==1) {
+                    alert('se logro modificar la venta con EXITO!');
+                    setTimeout("location.href='ModificarVenta.jsp'", 500);
+                }else{
+                    alert('ERROR. No se logro modificar, por favor intente de nuevo');
+                }
+            }
+        });
+        
+    }
+    
+    function error(error){
+        console.error(error);
+    }
+
+})(jQuery);
+
 //    function consultarventas(){
 //        $.ajax({
 //            'url':'buscarventa',
@@ -84,103 +217,4 @@
 //            }
 //        });
 //    }
-//    
-    
-    function consultarventa(){
-        //var id = $(this).attr('vl');
-        var identificacion = $('#txtidentificacion').val();
-        $.ajax({
-            'url':'consultarventa',
-            'data':{
-                'identiventa': identificacion
-            },
-            'type':'POST',
-            'error':error,
-            'success': function(data) {
-                data = $(JSON.parse(data));
-                data.each(function(i,item){
-                    $('#txtidvent').val(item.idventa);
-                    $('#txtNombreventa').val(item.nombreventa);
-                    $('#txtfecha').val(item.fecha);
-                    $('#txtvalor').val(item.valor);
-                    $('#cboidcliente').val(item.idcliente.idCliente);
-                    $('#cboestado').val(item.estado);
-                });
-            }
-        });
-    } 
-
-    function limpiar(){
-          $("#txtidvent").val("");  
-          $("#txtNombreventa").val("");  
-          $("#txtfecha").val("");  
-          $("#txtidentificacion").val("");  
-          $("#txtvalor").val("");  
-          $("#cboidcliente").val("");  
-          $("#cboestado").val("");  
-     }
-    
-    function modificar(){
-        var idventa= $('#txtidvent').val();
-        var txtNombreventa = $('#txtNombreventa').val();
-        var txtfecha = $('#txtfecha').val();
-        var txtidentificacion = $('#txtidentificacion').val();
-        var txtvalor = $('#txtvalor').val();
-        var cbocliente = $('#cboidcliente').val();
-        var cboestado = $('#cboestado').val();
-        $.ajax({
-            'url':'modificarventa',
-            'data':{
-                'idventa': idventa,
-                'nombreventa':txtNombreventa,
-                'fecha':txtfecha,
-                'identificacion':txtidentificacion,
-                'valor':txtvalor,
-                'cliente':cbocliente,
-                'estado':cboestado
-            },
-            'type':'POST',
-            'error':error,
-            'success': function(data) {
-                //data = $(JSON.parse(data))
-                if (data==1) {
-                    alert('se logro modificar la venta con exito !');
-                    setTimeout("location.href='administrador.jsp'", 500);
-                }else{
-                    alert('no se logro modificar');
-                }
-            }
-        });
-        
-    }
-    
-    function error(error){
-        console.error(error);
-    }
-    
-    function valing(){
-        var ob=$([
-            {
-                'nom':'txtNombreventa',
-                'tip': 3,
-                'lbl': 'lblNombreventa'
-            },
-            {
-                'nom':'txtidentificacion',
-                'tip': 3,
-                'lbl': 'lblidentificacion'
-            },
-            {
-                'nom':'txtvalor',
-                'tip': 5,
-                'lbl': 'lblvalor'
-            }
-        ]);
-        var v = new validaciones();
-        var res = v.fntValidar(ob);
-        if (res) {
-          modificar();
-        }
-    }
-    
-})(jQuery);
+//  

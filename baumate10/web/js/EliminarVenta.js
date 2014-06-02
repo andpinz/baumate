@@ -19,8 +19,7 @@
                 var content = $('#tblVentas');
                 content.html('');
                     var d2 = $('<tr>');
-//                  var 
-                    td = $('<td>').text("Nombre Venta");
+                    var td = $('<td>').text("Nombre Venta");
                     d2.append(td);
                     td = $('<td>').text("Fecha");
                     d2.append(td);
@@ -48,7 +47,7 @@
                     var tdi = $('<input>');
                     tdi.attr('type','button');
                     tdi.attr('value','Eliminar');
-                    tdi.attr('id','proy'+item.idventa);
+                    tdi.attr('id','vent'+item.idventa);
                     tdi.attr('vl',item.idventa);
                     
                     td.append(tdi);
@@ -56,7 +55,7 @@
                     content.append(d2);
                     
                     
-                    $('#proy'+item.idventa).on('click',eliminar);
+                    $('#vent'+item.idventa).on('click',eliminar);
                 });
             }
         });

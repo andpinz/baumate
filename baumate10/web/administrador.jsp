@@ -210,6 +210,13 @@
                 <li class='has-sub'><a href='InsertarUnidadmedida.jsp'><span>Nueva Unidad de Medida</span></a>
                 </li>
             </ul>
+        <li class='has-sub'><a href='#'><span>Tipo de Venta</span></a>    
+            <ul>
+                <li class="has-sub"><a href="EliminarTipoVenta.jsp"><samp>Eliminar Tipo dde Venta</samp></a>
+                <li class="has-sub"><a href="ModificarTipoVenta.jsp"><samp>Modificar Tipo dde Venta</samp></a>
+                <li class="has-sub"><a href="InsertarTipoVenta.jsp"><samp>Nuevo Tipo dde Venta</samp></a>
+                </li>
+            </ul>
         </li>
     </ul>
 </li>

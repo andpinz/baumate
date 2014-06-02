@@ -18,14 +18,13 @@
         <form>
         <h1>Ventas</h1>
         
-        <p>Numero de registro de Venta</p>
-        <input type="text" id="txtIdventa">
+        <p>Tipo de Venta</p>
+        <select id="cbotipoventa">
+        </select>
         
-        <p>Identificacion de la Venta</p>
+        <p>Numero de la Registro</p>
         <input type="text" id="txtidentificacionventa">
-        
         <p><input type="button" id="btnbuscar" value="Buscar"></p>
-        
         <table id="tblVentas">
         </table>
         

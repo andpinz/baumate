@@ -19,7 +19,6 @@
                 'url': 'ingresartipodocumento',
                 'data': {
                     'descripcion': txtDescripcion
-                    
                 },
                 'type': 'GET',
                 'error': error,

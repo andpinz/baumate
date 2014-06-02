@@ -10,6 +10,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Css/modals.css">
         <script src="js/jquery-2.1.0.min.js" type="text/javascript"> </script>
         <title>Insertar Venta</title>
         <jsp:include page="administrador.jsp"></jsp:include>
@@ -22,10 +23,21 @@
                 <p>Crear Venta</p>
             </div>
             <div id="cuerpo">
-                <p>identificacion</p>
-                <input name="txtidentificacion" type="text" id="txtidentificacion" lbl="lblidentificacion">
-                <label id="lblidentificacion" class="lblestil"></label>
-                <p>Nombre</p>
+                <p>Numero de Registro</p>
+                <input type="text" id="txtnumregistro" name="txtnumregistro">
+                <p>Tipo de Venta</p>
+                <select id="cboidtipoventa">
+                </select><input type="button" id="btnEmergente" value="+" data-type="zoomin">
+                    <div class="overlay-container">
+                        <div class="window-container zoomin">
+                            <p>Tipo de Venta</p>
+                            <input type="text" name="txtDescripciontipoventa"  id="txtDescripciontipoventa" lbl="lblDescripciontipoventa">
+                            <label id="lbldescripciontipoventa" class="lblestil"></label><br>
+                            <input type="button" id="btnGuardarTventa" value="Guardar">
+                            <input type="button" value="cancelar" id="btnCancelar" />
+                        </div>
+                   </div>
+                <p>Descripcion</p>
                 <input name="txtNombreventa" type="text" id="txtNombreventa" lbl="lblNombreventa">
                 <label id="lblNombreventa" class="lblestil"> </label>
                 <p>Fecha</p>
@@ -33,7 +45,15 @@
                 <p>valor</p>
                 <input name="txtvalor" type="text" id="txtvalor" lbl="lblvalor">
                 <label id="lblvalor" class="lblestil"></label>
-                <p>idcliente</p>
+                <p>Cliente</p>
+                <p><input type="text" id="txtCliente" name="txtCliente"/><input type="button" id="bntBuscarc" valu="Buscar" data-type="zoomin"></p>
+                <div class="overlay-container">
+                        <div class="window-container zoomin">
+                            <p>Clientes encontrados</p>
+                            <table id="cboClientes">
+                            </table>
+                        </div>
+                   </div>
                 <select name="cboidcliente" id="cboidcliente">
                 </select>
                 <select name="cboestado" id="cboestado">

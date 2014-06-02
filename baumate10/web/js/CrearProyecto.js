@@ -10,41 +10,18 @@
     $('#btnGuardarCiudad').on('click', insertarciudad);
     insertores();
     function insertores() {
+//        var content = $('#tblActividades');
+//        var tr = $('<tr>');
+//        var td = $('<td>');
         listartipopisos();
         $('#btnAgregarAct').on('click', addAct);
-    }
-    function limpiarInsertores(){
-        $('#txtDescripcionAct').val('');
-        $('#txtAreaAct').val('');
-    }
-    function listartipopisosDin(cbo,valor) {
-       $.ajax({
-           'url': 'listartipopisos',
-           'type': 'POST',
-           'error': error,
-           'success': function(data) {
-               data = $(JSON.parse(data))
-               var content = $(cbo);
-               content.html('');
-               data.each(function(i, item) {
-                   var d2;
-                    if (item.codigo == valor) {
-                        var d2 = $('<option selected>').text(item.nombre);
-                    }else{
-                        var d2 = $('<option>').text(item.nombre);
-                    }
-                        d2.attr('value', item.codigo)
-                   content.append(d2);
-               });
-           }
-       });
     }
     function addAct(){
         var nft = $('#tblActividades >tbody >tr').length;
         var ins = $('#insActividades');
         var tr = $('<tr>').attr('id','tr'+(nft-2));
         var td = $('<td>');
-        var input = $('<textArea>').attr('id','txtDescripcionAct'+(nft-2)).attr('type','text').val($('#txtDescripcionAct').val());
+        var input = $('<input>').attr('id','txtDescripcionAct'+(nft-2)).attr('type','text').val($('#txtDescripcionAct').val());
         td.append(input);
         tr.append(td);
         var td = $('<td>');
@@ -53,30 +30,15 @@
         tr.append(td);
         var td = $('<td>');
         var input = $('<select>').attr('id','cbotipopisoAct'+(nft-2));
-        //input.val($('#cbotipopisoAct').val());
-        listartipopisosDin('#cbotipopisoAct'+(nft-2),$('#cbotipopisoAct').val())
+        input.val($('#cbotipopisoAct').val());
         td.append(input);
         tr.append(td);
         var td = $('<td>');
-        var input = $('<input>').attr('id','btnElimAct'+(nft-2)).attr('type','button').attr('vl',(nft-2)).on('click',elimAct).val('-');
+        var input = $('<input>').attr('id','btnElimAct'+(nft-2)).attr('type','button').attr('vl',(nft-2)).on('click',elimAct);
         td.append(input);
         tr.append(td);
         ins.before(tr);
     }    
-    function arregloActividades(){
-        var nft = ($('#tblActividades >tbody >tr').length)-2;
-        var listact = new Array();
-        for (var i = 0; i < nft; i++) {
-            var txtDesAct = $('#txtDescripcionAct'+i).val();
-            var txtAreaAct = $('#txtAreaAct'+i).val();
-            var tipopisoAct = $('#cbotipopisoAct'+i).val();
-            if (tipopisoAct != "" && tipopisoAct != undefined) {
-                var act = new Array(txtDesAct,txtAreaAct,tipopisoAct);
-                listact[listact.length]=act;
-            }
-        }
-        return listact;
-    }
     function elimAct(){
         var intf = $(this).attr('vl');
         $('#tr'+intf).remove();
@@ -161,7 +123,6 @@
         var cf = new ControlFecha();
         $('#txtFechaIni').val(cf.hoy());
         $('#txtFechaFin').val(cf.hoy());
-        limpiarInsertores();
     }
     function init() {
 
@@ -176,16 +137,12 @@
             var vf = new ControlFecha();
             if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
                 $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
-            }else{
-                $('#lblfecha').text('');
             }
         });
         $('#txtFechaFin').blur(function() {
             var vf = new ControlFecha();
             if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
                 $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
-            }else{
-                $('#lblfecha').text('');
             }
         });
     }
@@ -200,7 +157,7 @@
                 content.html('');
                 data.each(function(i, item) {
                     var d2 = $('<option>').text(item.nombreciudad);
-                    d2.attr('value', item.idciudad);
+                    d2.attr('value', item.idciudad)
                     content.append(d2);
                 });
             }
@@ -215,7 +172,6 @@
         //var txtGanancias = $('#txtGanancias').val();
         var txtPresupuesto = $('#txtPresupuesto').val();
         var txtIdEmpleado = $('#txtIdEmpleado').val();
-        
         $.ajax({
             'url': 'insertarproyecto',
             'data': {
@@ -226,8 +182,7 @@
                 'direccion': txtDireccion,
                 'ganancia': 0,
                 'presupuesto': txtPresupuesto,
-                'idempleado': txtIdEmpleado,
-                'actividades': JSON.stringify(arregloActividades())
+                'idempleado': txtIdEmpleado
             },
             'type': 'POST',
             'error': error,
@@ -272,8 +227,6 @@
         if (!(vf.comparar($('#txtFechaFin').val(), $('#txtFechaIni').val()))) {
             $('#lblfecha').text('la fecha final debe ser mayor a la fecha de inicio');
             res = false;
-        }else{
-            $('#lblfecha').text('');
         }
         if (res) {
             insertar();
