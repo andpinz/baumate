@@ -11,6 +11,7 @@ import co.com.mariobarbosa.baumate.modelo.VO.CargoVO;
 import co.com.mariobarbosa.baumate.modelo.VO.CiudadVO;
 import co.com.mariobarbosa.baumate.modelo.VO.ClienteVO;
 import co.com.mariobarbosa.baumate.modelo.VO.EmpleadoVO;
+import co.com.mariobarbosa.baumate.modelo.VO.IdentificacionVentaVO;
 import co.com.mariobarbosa.baumate.modelo.VO.MaterialOfrecidoVO;
 import co.com.mariobarbosa.baumate.modelo.VO.ProveedoresVO;
 import co.com.mariobarbosa.baumate.modelo.VO.ProyectoVO;
@@ -46,6 +47,7 @@ import co.com.mariobarbosa.baumate.modelo.VO.materialesVO;
 import co.com.mariobarbosa.baumate.modelo.VO.tipomaterialVO;
 import co.com.mariobarbosa.baumate.modelo.VO.unidadmedidaVO;
 import co.com.mariobarbosa.baumate.modelo.dao.EmpleadoDAO;
+import co.com.mariobarbosa.baumate.modelo.dao.IdentificacionVentaDAO;
 import co.com.mariobarbosa.baumate.modelo.dao.MaterialOfrecidoDAO;
 import co.com.mariobarbosa.baumate.modelo.dao.SolicitudAsignadaDAO;
 import co.com.mariobarbosa.baumate.modelo.dao.SolicitudDAO;
@@ -113,7 +115,8 @@ import net.sf.jasperreports.engine.JasperRunManager;
                                             "/buscarsolicitud","/modificarsolicitud","/eliminarsolicitud","/consultarcolicitudasignada","/modificarsolicitudasignada",
 
                                             "/rep1" ,"/modificarSolicitudFechaRecibido","/consultarsolicasignadas","/modificarsolicasignadas",
-                                            "/insertarciudad","/cargarcliente" })
+                                            "/insertarciudad","/cargarcliente","/insertaridentiventa","/consultaridentiventa","/modificaridentiventa","/buscaridentiventas","/listaridentiventa",
+                                            "/eliminaridentiventa","/insertarciudad"})
 public class servlet extends HttpServlet {
 
     /**
@@ -402,9 +405,19 @@ public class servlet extends HttpServlet {
              }else if (url.contains("cargarcliente")) {
                 cargarcliente(request, response, out);
             
-             }
-    
-               
+             }else if (url.contains("insertaridentiventa")) {
+                insertaridentiventa(request, response, out);
+            }else if (url.contains("consultaridentiventa")) {
+                consultaridentiventa(request, response, out);
+            }else if (url.contains("buscaridentiventas")) {
+                buscaridentiventas(request, response, out);
+            }else if (url.contains("modificaridentiventa")) {
+                modificaridentiventa(request, response, out);
+            }else if(url.contains("listaridentiventa")){
+                listaridentiventa(request, response, out);
+            }else if (url.contains("eliminaridentiventa")) {
+                eliminaridentiventa(request, response, out);
+            }
         } finally {
             out.close();
         }
@@ -2265,6 +2278,7 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
         String valor = request.getParameter("valor");
         String cboclientico = request.getParameter("cliente");
         String cboestado = request.getParameter("estado");
+        String cbotipoventa = request.getParameter("tipoventa");
         int resp = -1;
         try {
             VentaVO venta = new VentaVO();
@@ -2274,8 +2288,8 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
             venta.setValor(valor);
             venta.setIdcliente(new ClienteDAO().consultar(Integer.parseInt(cboclientico)));
             venta.setEstado(Integer.parseInt(cboestado));
+            venta.setTipoventa(new IdentificacionVentaDAO().consultarIdentificacionVenta(Integer.parseInt(cbotipoventa)));
             resp = new VentaDAO().insertar(venta);
-            
         }catch (Exception e){
             e.printStackTrace();
         }finally{
@@ -2363,12 +2377,12 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
 //    }
     
     private void buscarventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
-        String idventa = request.getParameter("idventa");
+        String tipoventa = request.getParameter("tipoventa");
         String identificacion = request.getParameter("identificacion");
         
         ArrayList<VentaVO> venta = new ArrayList<VentaVO>();
         try {
-            venta = new VentaDAO().listar(idventa,identificacion);
+            venta = new VentaDAO().listar(Integer.parseInt(tipoventa),identificacion);
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
@@ -2376,18 +2390,6 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
         }
         
     }
-    
-//    private void listarventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
-//        ArrayList<VentaVO> venta = new ArrayList<VentaVO>();
-//        try {
-//            venta = new VentaDAO().listar();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }finally{
-//            out.print( new Gson().toJson(venta));
-//        }
-//    }
-    
 
     // Metodos CRUD Material Ofrecido
 
@@ -2688,6 +2690,83 @@ private void buscarunidadmedida(HttpServletRequest request, HttpServletResponse 
         } catch (Exception e) {
             e.printStackTrace();
         }finally{
+            out.print(resp);
+        }
+    }
+    
+     private void insertaridentiventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String ventipo = request.getParameter("descripcionven");
+        int respuesta = -1;
+        try {
+            IdentificacionVentaVO tipoventa = new IdentificacionVentaVO();
+            tipoventa.setTipoidentificacionventa(ventipo);
+            respuesta = new IdentificacionVentaDAO().insertarIdentificacionVenta(tipoventa);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print(respuesta);
+        }
+    }
+
+    private void consultaridentiventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String identificacion = request.getParameter("desctipoventa");
+        IdentificacionVentaVO venta = new IdentificacionVentaVO();
+        try {
+            venta = new IdentificacionVentaDAO().consultarIdentificacionVenta(Integer.parseInt(identificacion));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print( new Gson().toJson(venta) );
+        }
+    }
+
+    private void buscaridentiventas(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String desctipovent = request.getParameter("desctipoventa");
+        ArrayList<IdentificacionVentaVO> tipovent = new ArrayList<IdentificacionVentaVO>();
+        try {
+            tipovent = (new IdentificacionVentaDAO().listar(desctipovent));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print( new Gson().toJson(tipovent) );
+        }
+    }
+
+    private void modificaridentiventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String idtipoventa = request.getParameter("idtipoventa");
+        String detalle = request.getParameter("detalle");
+        int resp = -1;
+        try {
+            IdentificacionVentaVO identiventa = new IdentificacionVentaVO();
+            identiventa.setIdidentificacionventa(Integer.parseInt(idtipoventa));
+            identiventa.setTipoidentificacionventa(detalle);
+            resp = new IdentificacionVentaDAO().modificarIdentificacionVenta(identiventa);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            out.print(resp);
+        }
+    }
+
+    private void listaridentiventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        ArrayList<IdentificacionVentaVO> listatip = new ArrayList<IdentificacionVentaVO>();
+        try {
+            listatip = new IdentificacionVentaDAO().listar();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            out.print(new Gson().toJson(listatip));
+        }
+    }
+
+    private void eliminaridentiventa(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String ididentivent = request.getParameter("ididentiventa");
+        int resp = -1;
+        try {
+            resp = new IdentificacionVentaDAO().eliminarIdentificacionVenta(Integer.parseInt(ididentivent));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
             out.print(resp);
         }
     }

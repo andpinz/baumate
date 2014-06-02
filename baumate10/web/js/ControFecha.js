@@ -1,7 +1,7 @@
 function ControlFecha(){
     this.hoy = function(){
         var fecha = new Date();
-        var str = fecha.getFullYear() + "-" + (fecha.getMonth()<10 ? '0' : '') + (fecha.getMonth() +1) + "-" + (fecha.getDate()<10 ? '0' : '') + fecha.getDate();
+        var str = fecha.getFullYear() + "-" + (fecha.getMonth()<10 ? '0' : '') + (fecha.getMonth() +1) + "-" + fecha.getDate();
         return str;
     }
     this.comparar = function(mayor,menor){

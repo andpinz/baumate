@@ -73,12 +73,14 @@
         });
 
     }
+    
     function modificar(){
         var idproy = $(this).attr('vl');
         var cc = new ControlCookies();
         cc.guardar("idproyectomod",idproy);
         setTimeout("location.href='ActualizarProyecto.jsp'", 0);
     }
+    
     function eliminar(){
         var id = $(this).attr('vl');
         $.ajax({

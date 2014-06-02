@@ -19,6 +19,7 @@ public class VentaVO {
     private String valor;
     private ClienteVO idcliente;
     private int estado;
+    private IdentificacionVentaVO tipoventa;
 
     public int getIdventa() {
         return idventa;
@@ -75,6 +76,15 @@ public class VentaVO {
     public void setEstado(int estado) {
         this.estado = estado;
     }
+
+    public IdentificacionVentaVO getTipoventa() {
+        return tipoventa;
+    }
+
+    public void setTipoventa(IdentificacionVentaVO tipoventa) {
+        this.tipoventa = tipoventa;
+    }
+
     
     
     

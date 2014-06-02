@@ -18,8 +18,10 @@
         <form>
         <h1>Eliminar Ventas</h1><br>
         
-        <p>Numero de registro de Venta</p>
+        <p>Tipo de Venta</p>
         <input type="text" id="txtIdventa">
+        <select id="">
+        </select>
         
         <p>Identificacion de la Venta</p>
         <input type="text" id="txtidentificacionventa">

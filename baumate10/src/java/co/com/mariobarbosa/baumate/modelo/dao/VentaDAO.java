@@ -23,8 +23,8 @@ public class VentaDAO extends Conexion{
         int respuesta = -1;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("insert into venta (nombreventa,fecha,identificacion,valor,idcliente,estado)"
-                    + "values (?,?,?,?,?,?)" );
+            PreparedStatement sentencia = conectar.prepareStatement("insert into venta (nombreventa,fecha,identificacion,valor,idcliente,estado,tipoventa)"
+                    + "values (?,?,?,?,?,?,?)" );
             
             sentencia.setString(1, data.getNombreventa());
             sentencia.setString(2, data.getFecha());
@@ -32,7 +32,7 @@ public class VentaDAO extends Conexion{
             sentencia.setString(4, data.getValor());
             sentencia.setInt(5, data.getIdcliente().getIdCliente());
             sentencia.setInt(6, data.getEstado());
-            
+            sentencia.setInt(7, data.getTipoventa().getIdidentificacionventa());
             respuesta = sentencia.executeUpdate();
                     
         } catch (Exception e) {
@@ -112,13 +112,13 @@ public class VentaDAO extends Conexion{
         }
     }
     
-    public ArrayList<VentaVO> listar (String idventa ,String identificacion){
+    public ArrayList<VentaVO> listar (int tipoventa ,String identificacion){
         ArrayList<VentaVO> respuesta = new ArrayList<VentaVO>();
         VentaVO venta = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idventa,nombreventa,DATE_FORMAT(fecha,'%Y-%m-%d')fecha,identificacion,valor,idcliente,estado FROM venta WHERE idventa LIKE concat('%',?,'%') and identificacion LIKE concat('%',?,'%') and estado=1");
-            sentencia.setString(1, idventa);
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idventa,nombreventa,DATE_FORMAT(fecha,'%Y-%m-%d')fecha,identificacion,valor,idcliente,estado,tipoventa FROM venta WHERE tipoventa=? or identificacion LIKE concat('%',?,'%') and estado=1");
+            sentencia.setInt(1, tipoventa);
             sentencia.setString(2, identificacion);
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
@@ -130,6 +130,8 @@ public class VentaDAO extends Conexion{
                 venta.setValor(res.getString("valor"));
                 venta.setIdcliente(new ClienteDAO().consultar(res.getInt("idcliente")));
                 venta.setEstado(res.getInt("estado"));
+                venta.setTipoventa( new IdentificacionVentaDAO().consultarIdentificacionVenta(res.getInt("tipoventa")));
+                
                 respuesta.add(venta);
             }
             
