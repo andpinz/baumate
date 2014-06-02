@@ -79,33 +79,29 @@ input[type="text"],input[type="password"]{
 margin-right: 1%;
 float: left;
 font-weight: bold;
-color: #6E6C5B;
+color: #7F7F7F;
 font-size: .7em;
-border: 2px solid #D8CF17;
+border: 2px solid #66665e;
 border-radius: 3px;
 box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
 width: 17%;
 height: 17px;
 padding: .4em;
 }
-input[type="button"] {
-        margin-right: 1%;
-  width: 12%;
+input[type="button"]{
   height: 28px;
-  border: 2px solid #6E6C5B;
-  color: #6E6C5B;
-  background: #FFFF66;
+  border: 2px solid #66665e;
+border-radius: 3px;
+  cursor: pointer;
+  background: #FFFF99;
   font-size: 17px;
   font-weight: bold;
 }
-input[type="button"]:hover, input[type="button"]:active {
-  cursor: pointer;
-  background: #6E6C5B;
-  color: #fff;
-}
 
-input[type="button"]:active {
-  background: #6E6C5B;
+input[type="button"]:hover, input[type="button"]:active {
+    border: 2px solid #66665e;
+      color: #ffffff;
+  background: #7F7F7F;
 }
 #correo{
     margin-left: 22%;

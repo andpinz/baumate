@@ -10,13 +10,40 @@ font-weight: bold;
 	padding: 1%;
 	font-family: 'Open Sans', Helvetica, sans-serif;
 }
+#titulo{
+    text-align: center;
+  width: auto;
+  height: auto;
+  padding: 0.5%;
+}
+#tabla{
+    alignment-adjust: central;
+  float: none;
+  height: auto;
+  padding: 2%;
+}
+select {
+  height: 28px;
+  border: 2px solid #66665e;
+border-radius: 3px;
+  background: #FFFF99;
+  color: #000000;
+  font-size: 17px;
+  font-weight: bold;
+  }
+  select:hover,option:hover
+  {
+  border: 2px solid #66665e;
+  color: #ffffff;
+  background: #7F7F7F;
+  }
 #CG{
 padding: 1px;
 width: auto;
 }
 #Cin{
 padding: 1%;
-background-color: rgba(142, 136, 131, 1);
+background-color: #7F7F7F;
 height: 75px;
 width: auto;
 }
@@ -46,11 +73,11 @@ width: 250px;
 height: 60px;
 }
 #cssmenu {
-  margin-top: 0.8%;
+  margin-top: 1.2%;
   float: left;
   position: relative;
-  height: 44px;
-  background: #000000;
+  height: 35px;
+  background: #FFFF99;
   width: 76%;
 }
 #cssmenu ul {
@@ -98,7 +125,7 @@ height: 60px;
   padding-right: 32px;
 }
 #cssmenu > ul > li:hover > a {
-  color: #D8CF17;
+  color: #FFFF99;
 }
 #cssmenu li.has-sub::after {
   display: block;
@@ -129,7 +156,7 @@ height: 60px;
   height: 0;
   width: 100%;
   border: 12px solid transparent;
-  border-top-color: #2b2f3a;
+  border-top-color: #ffffff;
   z-index: -2;
   -webkit-transition: left .25s ease;
   -moz-transition: left .25s ease;
@@ -142,7 +169,7 @@ height: 60px;
   height: 0;
   width: 100%;
   border: 12px solid transparent;
-  border-top-color: #2b2f3a;
+  border-top-color: #ffffff;
   top: -12px;
   right: 100%;
   z-index: -2;
@@ -178,11 +205,11 @@ height: 60px;
 }
 #cssmenu ul ul li a {
   width: 130px;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ffffff;
   padding: 10px 20px;
   font-size: 12px;
-  color: #ffffff;
-  background: #000000;
+  color: #FFFFFF;
+  background: #7F7F7F;
   -webkit-transition: all .35s ease;
   -moz-transition: all .35s ease;
   -ms-transition: all .35s ease;
@@ -190,8 +217,8 @@ height: 60px;
   transition: all .35s ease;
 }
 #cssmenu ul ul li:hover > a {
-  background: #D8CF17;
-  color: #000000;
+  background: #000000;
+  color: #FFFF99;
 }
 #cssmenu ul ul li:last-child > a,
 #cssmenu ul ul li.last > a {
@@ -207,7 +234,7 @@ height: 60px;
 }
 #cssmenu ul ul li.has-sub::after {
   border: 4px solid transparent;
-  border-left-color: #9c9c9c;
+  border-left-color: #ffffff;
   right: 10px;
   top: 12px;
   -moz-transition: all .2s ease;
@@ -329,17 +356,62 @@ height: 60px;
 }
 input[type="button"]{
   height: 28px;
-  border: 2px solid #6E6C5B;
-  color: #FFFF33;
-  background: #6E6C5B;
+  border: 2px solid #66665e;
+border-radius: 3px;
+  color: #ffffff;
+  background: #7F7F7F;
   font-size: 17px;
   font-weight: bold;
 }
 
 input[type="button"]:hover, input[type="button"]:active {
+    border: 2px solid #66665e;
   cursor: pointer;
-  background: #6E6C5B;
-  color: #fff;
+  background: #FFFF99;
+  color: #000000;
+}
+input[type="text"],input[type="password"]{
+
+font-weight: bold;
+color: #7F7F7F;
+font-size: .7em;
+border: 2px solid #66665e;
+border-radius: 3px;
+box-shadow: rgba(0,0,0,.5) 1px 1px 1px 1px inset;
+width: 25%;
+height: 18px;
+padding: .4em;
+}
+table td, table th { 
+  padding: 15px 15px; 
+}
+tr:nth-child(odd){ background-color:#FFFF99 ;}
+tr:nth-child(even)    { background-color:#ffffff; }
+td{
+  border:3px solid  #66665e;
+  border-width:0px 0px 0px 0px;
+  text-align:center;
+  font-size:12px;
+  font-weight:bold;
+  color:#000000;
+}
+tr:first-child td{
+    background:-o-linear-gradient(bottom, #7F7F7F 5%, #7F7F7F 100%);  
+     background:-webkit-gradient( linear, left top, left bottom, color-stop(1, #7F7F7F), color-stop(1, #7F7F7F) ); 
+  background:-moz-linear-gradient( center top, #66665e 5%, #66665e 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#6E6C5B", endColorstr="#6E6C5B");  background: -o-linear-gradient(top,#6E6C5B,#6E6C5B);
+
+  background-color:#66665e;
+  border:3px solid #66665e;
+  text-align:center;
+  border-width:0px 0px 0px 0px;
+  font-size:17px;
+  font-family:Arial;
+  font-weight:bold;
+  color:#FFFFFF;
+}
+td{
+    text-align: center;
 }
 h1{
 color: #6E6C5B;
@@ -358,8 +430,16 @@ font-weight: bold;
 #cerrarSesion{
      float: right;
   margin-right: 17px; 
+  background-color: #FFFF99;
+    color: #000000;
+}
+#cerrarSesion:hover, #ayuda:hover{
+  background-color: Ffff99;
+    color: #000000;
 }
 #ayuda{
+    background-color: #FFFF99;
+    color: #000000;
 float: right;
   margin-right: 12px;
   width: 2em;

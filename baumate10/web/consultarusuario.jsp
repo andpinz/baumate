@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width">
     <script type="text/javascript" src="js/jquery-2.1.0.min.js"></script>
     <script src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
-    <script type='text/javascript' src='Css/menu_jquery.js'></script>
+    <script type='text/javascript' src='js/menu_jquery.js'></script>
     <link rel="stylesheet" type="text/css" href="Css/consultarusuario.css">
     <link href="imagenes/baumate-icono.ico" type="image/x-icon" rel="shortcut icon" />
     <jsp:include page="administrador.jsp"></jsp:include>
@@ -26,8 +26,8 @@
                 <input type="text"  id="correo" placeholder="Correo"/>
                 <input type="password"  id="contrasena2" placeholder="Contraseña"/>
                 <input type="password"  id="contrasena2" placeholder="Confirmar contraseña"/>
-                <h4>Rol de usuario:<select  id="idrol"></select></h4>
-                <h4>Usuario de empleado:<select  id="idempleado"></select></h4>
+                Rol de usuario:<select  id="idrol"></select>
+                Usuario de empleado:<select  id="idempleado"></select>
                 <input type="button" id="btnCrearu" value="Crear Usuario" >
             <input type="button" id="btnCancelaru" value="Cancelar" >
             </div>
