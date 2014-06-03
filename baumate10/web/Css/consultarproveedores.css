@@ -1,0 +1,20 @@
+table{ 
+    border-collapse: separate;
+   border-spacing: 2px;
+   background-color: #66665e;
+width: 100%;
+height:auto;
+}
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#btnbuscar{
+    margin-left: 5%;
+}
+#nit{
+    margin-left: 44%;
+}

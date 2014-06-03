@@ -14,28 +14,26 @@
         <title>Baumate</title>
     </head>
     <body>
-                <div id="contenedor">
+        
+        <div id="contenedor">
             <div id="titulo">
-        <h1>Chequear Orden de Compra</h1>
+        <h1>Chequear Orden De Compra</h1>
             </div>
-        <div id="tabla"> 
-          <table id="tblSolicitudes"></table>
-            </table>
-        </div>
-            <div id="formulario">
-                <div id="formulariod">
-            <h4>Seleccione el proyecto con el que quiere verificar la orden de compra: </h4>
+            <div id="formularioc">
+          <label>Seleccione el proyecto con el que quiere verificar la orden de compra:</label><select id="cboProyecto"></select>
           <input type="button" id="btnBuscarId" value="Buscar">  
-          <select id="cboProyecto"></select>
-                </div>
+                <div id="tabla">
+                <table id="tblSolicitudes"></table>
             </div>
-            <div id="tabla">
-            <table id="tblSolicitudesAsignadas">
-         <input type="button" id="btnCantidadrecibida" value="modificar"/>
+            </div>
+          <div id="tabla">
+                <table id="tblUsuario"></table>
+            </div>
+            <input type="button" id="btnCantidadrecibida" value="modificar"/>
          <input type="hidden" id="txtcontadorcajas"/>
          <input type="hidden" id="txtidsolicitud"/>
-            </div>
                 </div>
+        
         <script src="js/chequearordenescompra.js" type="text/javascript"></script>
     </body>
 </html>

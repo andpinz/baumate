@@ -10,17 +10,25 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
+         <link rel="stylesheet" type="text/css" href="Css/consultarproveedores.css">
          <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Consultar Porveedores</title>
+        <title>Baumate</title>
     </head>
     <body>
-        <h1>Buscar proveedores</h1>
-        <p>NIT Proveedor</p>
-        <input name="txtidproveedores" type="text" id="txtidproveedores">
-       
-        <p><input type="button" id="btnbuscar" value="Buscar"></p>
-        <table id="tblProveedores"></table>
-        <script type='text/javascript' src='js/JavaScriptSecretaria.js'></script>
+        
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Consultar Proveedor</h1>
+            </div>
+            <div id="formulario">
+                <label id="nit">Nit del proveedor:</label><input name="txtidproveedores" type="text" id="txtidproveedores">
+        <input type="button" id="btnbuscar" value="Buscar">
+            </div>
+            <div id="tabla">
+                <table id="tblProveedores"></table>
+            </div>
+                </div>
+        
         <script src="js/consultarproveedores.js" type="text/javascript"></script>
     </body>
 </html>
