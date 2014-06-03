@@ -11,22 +11,26 @@
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="Css/eliminarmaterialporpiso.css">
           <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Eliminar Formulas</title>
+        <title>Baumate</title>
     </head>
     <body>
-        <form>
-        <p>Material</p>
-        <select name="cbomaterial" id="cbomaterial">
-        </select>
-        <p>Tipo Piso</p>
-        <select name="cbotipopiso" id="cbotipopiso">
-        </select>
-        <p><input type="button" id="btnBuscar" value="Buscar"></p>
-        <table id="tblformula">
-        </table>
-                    </form>
-        <script type='text/javascript' src='js/JavaScriptAdministrador.js'></script>
+        
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Eliminar Material Por Piso</h1>
+            </div>
+            <div id="formulario">
+            <label>Material:</label><select name="cbomaterial" id="cbomaterial"></select>
+            <label id="tipopiso">Tipo de Piso:</label><select name="cbotipopiso" id="cbotipopiso"></select>
+        <input type="button" id="btnBuscar" value="Buscar">
+            </div>
+            <div id="tabla">
+                <table id="tblformula"></table>
+            </div>
+                </div>
+
         <script src="js/validaciones.js" type="text/javascript"></script>
         <script src="js/EliminarFormula.js" type="text/javascript"></script>
     </body>

@@ -1,0 +1,21 @@
+table{ 
+    border-collapse: separate;
+   border-spacing: 2px;
+   background-color: #66665e;
+width: 100%;
+height:auto;
+}
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#btnBuscar{
+    float: right;
+    margin-right: 4%;
+}
+#nombrematerial{
+    margin-left: 40%;
+}
