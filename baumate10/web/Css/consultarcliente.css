@@ -5,9 +5,6 @@ table{
 width: 100%;
 height:auto;
 }
-#txtDocumento{
-    float: right;
-}
 #formulario{
    margin-top: 5%; 
   float: right;
@@ -15,7 +12,9 @@ height:auto;
   height: auto;
   padding: 1%;
 }
-#btnBuscar{
-    float: right;
-    margin-right: 4%;
+#documento{
+    margin-left: 6%;
+}
+#nombrel{
+    margin-left: 5%;
 }
