@@ -11,26 +11,28 @@
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/jquery-2.1.0.min.js" type="text/javascript" ></script>
+        <link rel="stylesheet" type="text/css" href="Css/consultarmaterialporpiso.css">
         <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Consultar Formula</title>
+        <title>Baumate</title>
     </head>
     <body>
-        <form>
-        <div id="informacion">
-        <h1>Consultar formulas</h1>
-        <p>Material</p>
-        <select name="cbomaterial" id="cbomaterial">
-        </select>
-        <p>Tipo Piso</p>
-        <select name="cbotipopiso" id="cbotipopiso">
-        </select>
-        <p><input type="button" id="btnBuscarpornombre" value="buscar"></p>
-        <table id="tblformula">
-        </table>
-        <script type='text/javascript' src='js/JavaScriptSecretaria.js'></script>
+        
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Cosnultar Material Por Piso</h1>
+            </div>
+            <div id="formulario">
+            <label>Material:</label><select name="cbomaterial" id="cbomaterial"></select>
+            <label id="tipopiso">Tipo de piso:</label><select name="cbotipopiso" id="cbotipopiso"></select>
+        <input type="button" id="btnBuscarpornombre" value="buscar">
+            </div>
+            <div id="tabla">
+                <table id="tblformula"></table>
+            </div>
+                </div>
+
         <script src="js/validaciones.js" type="text/javascript"></script> 
         <script src="js/ConsultarFormula.js" type="text/javascript"></script>
         </div>
-                    </form>
     </body>
 </html>

@@ -1,0 +1,36 @@
+table{ 
+    border-collapse: separate;
+   border-spacing: 2px;
+   background-color: #66665e;
+width: 100%;
+height:auto;
+}
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#contenedore{
+    background-color: #ffffff;
+  margin-top: 5%;
+  width: 100%;
+  height: auto;
+  padding: 5px 5px;
+  overflow: auto;
+  outline: none;
+-moz-box-shadow: 5px 6px 20px #000000;
+-webkit-box-shadow: 5px 6px 20px #000000;
+box-shadow: 5px 6px 20px #000000;
+}
+#nombre{
+    margin-left: 7%;
+}
+#documento{
+    margin-left: 7%;
+}
+#btnbuscar{
+    margin-left: 8%;
+}
+

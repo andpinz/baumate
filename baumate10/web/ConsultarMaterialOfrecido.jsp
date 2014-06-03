@@ -9,26 +9,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consultarp Material Ofrecido</title>
+        <title>Baumate</title>
         <script src="js/jquery-2.1.0.min.js" type="text/javascript" ></script>
+        <link rel="stylesheet" type="text/css" href="Css/consultarmaterialofrecido.css">
         <jsp:include page="administrador.jsp"></jsp:include>
     </head>
     <body>
-        <form>
-        <div id="informacion">
-        <h1>Material Ofrecido</h1>
-        <p>MaterialOfrecido</p>
-        <select name="cboidmaterial" id="cboidmaterial">
-        </select>
-        <p>Proveedor</p>
-        <select name="cboidproveedor" id="cboidproveedor">
-        </select>
-        <p><input type="button" id="btnBuscarpornombre" value="buscar"></p>
-        <table id="tblmaterialofrecido" border="1">
-        </table>
-        </div>
-         </form>   
-        <script type='text/javascript' src='js/JavaScriptSecretaria.js'></script>
+        
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Consultar Material Ofrecido</h1>
+            </div>
+            <div id="formulario">
+                <label id="material">Material ofrecido:</label><select name="cboidmaterial" id="cboidmaterial"></select>
+                <label id="proveedor">Proveedor</label><select name="cboidproveedor" id="cboidproveedor"></select>
+        <input type="button" id="btnBuscarpornombre" value="buscar">
+            </div>
+            <div id="tabla">
+                <table id="tblmaterialofrecido" border="1"></table>
+            </div>
+                </div>
+
         <script src="js/validaciones.js" type="text/javascript"></script> 
         <script src="js/ConsultarMaterialOfrecido.js" type="text/javascript"></script>
     </body>
