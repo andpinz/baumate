@@ -1,0 +1,17 @@
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#nombrematerial, #unidad{
+    margin-left: 4%;
+}
+#txtcantidadTotal{
+    margin-top: 3%;
+}
+#btnGuardar{
+    margin-left: 45%;
+}
+

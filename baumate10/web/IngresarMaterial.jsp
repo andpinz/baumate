@@ -11,36 +11,26 @@
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css"> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="Css/nuevomaterial.css">
         <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Insertar Material</title>
+        <title>Baumate</title>
     </head>
     <body>
-        <form>
-        <div id="main">
-            <div id="contenedor">
-                <div id="Cabecera">
-                    <h1>Ingresar Nuevo Material</h1>
+        
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Nuevo Material</h1>
+            </div>
+            <div id="formulario">
+                    <label>Tipo de material:</label><select name="cboTipoMaterial" id="cboTipoMaterial"></select>
+                    <label id="nombrematerial">Nombre del Material:</label><input type="text" name="txtNombreMaterial" id="txtNombreMaterial" lbl="lblNombreMaterial">
+                    <label id="unidad">Unidad de medida:</label><select name="cbounidadmedida" id="cbounidadmedida"></select>
+                    <label>Cantidad:</label><input type="text" name="txtcantidadTotal" id="txtcantidadTotal" lbl="lblcantidadTotal">
+                    <input type="button" id="btnGuardar" value="Guardar">
+                    <input type="button" id="btnLimpiar" value="Cancelar">
+            </div>
                 </div>
-                <div id="cuerpo">
-                    <p>Nombre Material</p>
-                    <input type="text" name="txtNombreMaterial" id="txtNombreMaterial" lbl="lblNombreMaterial">
-                    <label id="lblNombreMaterial" class="lblestil" ></label>
-                    <p>Unidad de Medida</p>
-                    <select name="cbounidadmedida" id="cbounidadmedida">
-                    </select>
-                    <p>Cantidad Total</p>
-                    <input type="text" name="txtcantidadTotal" id="txtcantidadTotal" lbl="lblcantidadTotal">
-                    <label id="lblcantidadTotal" class="lblestil" ></label>
-                    <p>Tipo Material</p>
-                    <select name="cboTipoMaterial" id="cboTipoMaterial">
-                    </select>
-                    <p><input type="button" id="btnGuardar" value="Guardar"></p>
-                    <p><input type="button" id="btnLimpiar" value="Cancelar"></p>
-                </div>
-            </div>    
-        </div>
-                    </form>
-        <script type='text/javascript' src='js/JavaScriptSecretaria.js'></script>
+
         <script src="js/validaciones.js" type="text/javascript" ></script>
         <script src="js/IngresarMaterial.js" type="text/javascript"></script>         
     </body>

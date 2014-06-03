@@ -10,34 +10,26 @@
     <head>
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="Css/nuevomaterialporpiso.css">
         <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
         <jsp:include page="administrador.jsp"></jsp:include>
-        <title>Insertar Material por piso</title>
+        <title>Baumate</title>
     </head>
     <body>
-        <form>
-        <div id="main">
-            <div id="contenedor">
-                <div id="Cabecera">
-                    <h1>Ingresar Material por piso</h1>
+
+        <div id="contenedor">
+            <div id="titulo">
+        <h1>Nuevo Material Por Piso</h1>
+            </div>
+            <div id="formulario">
+                <label id="material">Material:</label><select name="cboidMaterial" id="cboidMaterial"></select>
+                <label id="tipopiso">Tipo de piso:</label><select name="cbotipopiso" id="cbotipopiso"></select>
+                <label id="cantidad">Cantidad:</label><input type="text" name="txtcantidad" id="txtcantidad" lbl="lblcantidad">
+                    <input type="button" id="btnGuardar" value="Guardar">
+                    <input type="button" id="btnLimpiar" value="Cancelar">
+            </div>
                 </div>
-                <div id="cuerpo">
-                    <p>Material</p>
-                    <select name="cboidMaterial" id="cboidMaterial">
-                    </select>
-                    <p>Tipo Piso</p>
-                    <select name="cbotipopiso" id="cbotipopiso">
-                    </select>
-                    <p>Cantidad</p>
-                    <input type="text" name="txtcantidad" id="txtcantidad" lbl="lblcantidad">
-                    <label id="lblcantidad" class="lblestil" ></label>
-                    <p><input type="button" id="btnGuardar" value="Guardar"></p>
-                    <p><input type="button" id="btnLimpiar" value="Cancelar"></p>
-                </div>
-            </div>    
-        </div>
-                    </form>
-        <script type='text/javascript' src='js/JavaScriptAdministrador.js'></script>
+
         <script src="js/validaciones.js" type="text/javascript" ></script>
         <script src="js/InsertarFormula.js" type="text/javascript"></script>
     </body>
