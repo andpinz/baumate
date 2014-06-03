@@ -13,6 +13,7 @@
         <script src="js/jquery-2.1.0.min.js" type="text/javascript"></script>
         <script src="js/modernizr.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="Css/Validaciones.css">
+              <link rel="stylesheet" type="text/css" href="Css/modals.css">   
         <jsp:include page="administrador.jsp"></jsp:include>
     
 </head>
@@ -24,9 +25,23 @@
                 Documento
                 <input name="txtDocumento" type="text" id="txtDocumento" lbl="lbldocumento">
                 <label id="lbldocumento" class="lblestil"></label><br>
+                
                 Tipo documento
                 <select name="cboTipodocumento" id="cboTipodocumento">
-                </select><br>
+                </select> 
+                 <input id="btnAddCiudad" value="+" type="button" data-type="zoomin"><br>
+                        <div class="overlay-container" id="winCiudad" >
+                            <div class="window-container zoomin">
+                                
+                                <p>Descricion Documento:</p>
+                                <input name="txtDescripcion" type="text" id="txtDescripcion" lbl="lblCiudad">
+                                <label id="lblCiudad" class="lblestil"></label><br>
+                                <input type="button" id="btnGuardarCiudad" value="Guardar">
+                                <input type="button" value="cancelar" id="btnCancelarCiudad" />
+                            </div>
+                        </div>
+                            
+                            
                 Primer Nombre
                 <input name="txtPrimerNombre" type="text" id="txtPrimerNombre" lbl="lblprimernombre">
                 <label id="lblprimernombre" class="lblestil"></label><br>
@@ -59,6 +74,5 @@
 <script type='text/javascript' src='js/JavaScriptAdministrador.js'></script>
 <script src="js/validaciones.js" type="text/javascript"></script>
 <script src="js/CrearCliente.js" type="text/javascript"></script>
-</form>
 </body>
 </html>

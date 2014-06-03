@@ -11,8 +11,12 @@
 <form>
 
         <h1>Consultar Cliente</h1>
-        <p>Documento</p>
-        <input name="txtDocumento" type="text" id="txtDocumento">
+        <p>Documento
+        <input name="txtDocumento" type="text" id="txtDocumento"></p>
+        <p> nombre
+        <input name="nombre" type="text" id="nombre"></p>
+        <%--> Nombre
+        <input name="nombre" type="text" id ="nombre"></p> <--%>
 
         <p><input type="button" id="btnLimpiar" value="Cancelar">
             <input type="button" id="btnBuscar" value="Buscar"></p>

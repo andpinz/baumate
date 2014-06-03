@@ -417,6 +417,8 @@ public class servlet extends HttpServlet {
                 listaridentiventa(request, response, out);
             }else if (url.contains("eliminaridentiventa")) {
                 eliminaridentiventa(request, response, out);
+            }else if (url.contains("buscarclie")) {
+                buscarclie(request, response, out);
             }
         } finally {
             out.close();
@@ -973,6 +975,19 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             out.print( new Gson().toJson(clie) );
         }
     }
+    private void buscarclie(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
+        String documento = request.getParameter("documento");
+        String nombre = request.getParameter("nombre");
+        ArrayList<ClienteVO> clie = new ArrayList<ClienteVO>();
+          try {
+              clie = new ClienteDAO().listarcliente(documento, nombre);
+          } catch (Exception e) {
+              e.printStackTrace();
+        }finally{
+            out.print( new Gson().toJson(clie) );
+        }
+    }  
+
 
     private void consultarcliente(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -1074,12 +1089,12 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         
         String documento = request.getParameter("documento");
-        String tipodocumento = request.getParameter("tipodocumento");
+        String nombre = request.getParameter("nombre");
        
         ArrayList<ClienteVO> cliente = new ArrayList<ClienteVO>();
         try {
             
-          cliente= new ClienteDAO().listar(documento,Integer.parseInt(tipodocumento));
+          cliente= new ClienteDAO().listarcliente(documento, nombre);
        } catch (Exception e) {
             e.printStackTrace();
         }finally{

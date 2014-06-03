@@ -100,14 +100,14 @@ public class ClienteDAO extends Conexion{
             return respuesta;
         }
     }
-     public ArrayList<ClienteVO> listar(String documento,int tipodoc){
+public ArrayList<ClienteVO> listarcliente(String documento,String nombre){
         ArrayList<ClienteVO> respuesta = new ArrayList<ClienteVO>();
         ClienteVO cliente = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT * FROM cliente where Documento like concat('%',?,'%') and tipodocumento =? ");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT * FROM cliente where Documento=?  or primerNombre =?  ");
             sentencia.setString(1, documento);
-            sentencia.setInt(2, tipodoc);
+            sentencia.setString(2, nombre);
              
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
@@ -133,7 +133,7 @@ public class ClienteDAO extends Conexion{
             return respuesta;
         }
     }
-    ///consulta un solo cliente en especifico
+
     public ClienteVO consultar(int id){
         ClienteVO cliente = null;
         try {
@@ -145,16 +145,17 @@ public class ClienteDAO extends Conexion{
             while (res.next()) {
                 cliente = new ClienteVO();
                 cliente.setIdCliente(res.getInt("idcliente"));
-                cliente.setDireccion(res.getString("direccion"));
                 cliente.setDocumento(res.getString("documento"));
-                cliente.setPrimerApellido(res.getString("primerapellido"));
-                cliente.setPrimerNombre(res.getString("primerapellido"));
-                cliente.setSegundoApellido(res.getString("segundoapellido"));
+                cliente.setIdtipoIdentificacion(new TipoIdentificacionDAO().consultar(res.getInt("tipodocumento")));
+                cliente.setPrimerNombre(res.getString("primernombre"));
                 cliente.setSegundoNombre(res.getString("segundonombre"));
+                cliente.setPrimerApellido(res.getString("primerapellido"));
+                cliente.setSegundoApellido(res.getString("segundoapellido"));
+                cliente.setDireccion(res.getString("direccion"));
                 cliente.setTelefono(res.getString("telefono"));
                 cliente.setEstado(res.getInt("estado"));
-                cliente.setIdtipoIdentificacion(new TipoIdentificacionDAO().consultar(res.getInt("tipodocumento")));
-                
+          
+            
             }
             
         } catch (Exception e) {
