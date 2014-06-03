@@ -1,0 +1,15 @@
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#proveedor, #costo, #btnBuscarMatofre{
+    margin-left: 2%;
+}
+#btnGuardar{
+    margin-top: 3%;
+    margin-left: 80%;
+}
+

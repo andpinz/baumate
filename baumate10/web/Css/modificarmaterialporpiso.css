@@ -1,0 +1,18 @@
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#txtcantidad{
+    width: 15%;
+}
+#tipopiso, #btnBuscarId, #cantidad{
+    margin-left: 3%;
+}
+#btnGuardar{
+    margin-top: 3%;
+    margin-left: 80%;
+}
+

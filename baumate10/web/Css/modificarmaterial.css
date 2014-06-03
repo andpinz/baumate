@@ -1,0 +1,30 @@
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#formularioc{
+    border-bottom: 2px solid #66665e;
+  alignment-adjust: central;
+  float: none;
+  height: auto;
+  padding: 4%;
+  
+}
+table{ 
+    border-collapse: separate;
+   border-spacing: 2px;
+   background-color: #66665e;
+width: 100%;
+height:auto;
+}
+#btnGuardar{
+    margin-top: 2%;
+    margin-left: 80%;
+}
+#tipomaterial, #cantidadtotal{
+    margin-left: 5%;
+}
+
