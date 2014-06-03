@@ -24,57 +24,22 @@
 <body>
     <div id="contenedor"> 
         <div id="derecha">
-            <div id="informacion">
-                <div id="informacion2">
-                     
-                  
-                    <div><p>Tipo documento</p><select name="cboTipoDocumento" id="cboTipoDocumento">
-                    </select></div>
-                    <hr>
+                    <label>Tipo documento</label><select name="cboTipoDocumento" id="cboTipoDocumento"></select>
                     
-                    <div><p>Documento:</p><input name="texDocumento" type="text" id="idcontacto" lbl="lbldocumento">
-                    <label id="lbldocumento" class="lblestil"></label></div>
-                    <hr>
-                    <div><p>Primer nombre:</p><input name="txtPrimerNombre" type="text" id="txtPrimerNombre" lbl="lblprimernombre"><br>
-                    <label id="lblprimernombre" class="lblestil"></label></div>
-                    <div><p>Segundo nombre</p><input name="txtSegundoNombre" type="text" id="txtSegundoNombre" lbl="lblsegundonombre">
-                    <label id="lblsegundonombre"class="lblestil"></label></div>
-                    <hr>
-                    <div><p>Primer apellido</p><input name="txtPrimerApellido" type="text" id="txtPrimerApellido" lbl="lblprimerapellido">
-                    <label id="lblprimerapellido" class="lblestil"></label></div>
-                    <hr>
-                    <div><p>Segundo apellido</p><input name="txtSegundoApellido" type="text" id="txtSegundoApellido" lbl="lblsegundoapellido">
-                    <label id="lblsegundoapellido" class="lblestil"></label></div>
-                    <hr>
-                    <div><p>Direcciòn</p><input name="txtDireccion" type="text" id="txtDireccion"></div>
-                    <hr>
-                    <div><p>Telèfono</p><input name="txtTelefono" type="text" id="txtTelefono"  lbl="lbltelefono">
-                    <label id="lbltelefono" class="lblestil"></label>
-                    
-                    
-                    </div>
-                    <hr
-                        </div>
-                </div>
-                <div id="btnguardar">
-                  
-                </div>
-            </div>
-        </div>
-        <div id="izquierda">
-
-        </div>
-        <div id="botones">
-            <div id="botonesstyle">
-            
+                    <label>Documento:</label><input name="texDocumento" type="text" id="idcontacto" lbl="lbldocumento">
+                    <label>Primer nombre:</label><input name="txtPrimerNombre" type="text" id="txtPrimerNombre" lbl="lblprimernombre"><br>
+                    <label>Segundo nombre</label><input name="txtSegundoNombre" type="text" id="txtSegundoNombre" lbl="lblsegundonombre">
+                    <label>Primer apellido</label><input name="txtPrimerApellido" type="text" id="txtPrimerApellido" lbl="lblprimerapellido">
+                    <label>Segundo apellido</label><input name="txtSegundoApellido" type="text" id="txtSegundoApellido" lbl="lblsegundoapellido">
+                    <label>Direcciòn</label><input name="txtDireccion" type="text" id="txtDireccion">
+                    <label>Telèfono</label><input name="txtTelefono" type="text" id="txtTelefono"  lbl="lbltelefono">
             <input type="button" id="add" value="Crear">
             <input type="button" id="edi" value= "Modificar">
             <input type="button" id="del" value="Eliminar">
-            
             </div>
-            
+        <div id="izquierda">
+
         </div>
-        
     </div>
     <script src="js/validaciones.js" type="text/javascript"></script>
     <script src="js/GestionarCliente.js" type="text/javascript"></script>

@@ -1,120 +1,20 @@
-body{
-    background-color: #fff;
-    color:#fff;
-}
-/*#contenedor{
-    background-color: rgba(248, 255, 255, 1);
-    min-height: 500px;
-    height: auto;
-    width: 80%;
-    padding: 1%;
-    border-radius: 15px 15px 15px 15px;
-    margin-top: 5%;
-    margin-left: 10%;
-    margin-right: auto;
-}*/
 #derecha{
-    background-color: lightslategray;
+    border: 2px solid #66665e;
     height: auto;
     width: 65%;
     padding: 1%;
-    border-radius: 15px 15px 15px 15px;
-    margin-left: 5%;
     float: right;
-    text-align: right;
-}
-#informacion{
-    width: 75%;
-    float: left;
-    margin-left: 8%;
-    margin-top: -5%;
-
-}
-#informacion div{
-    margin-top: 10%;
-    width: 90%;
-    float: right;
-    
-}
-#informacion2 div{
-    margin-top: 0%;
-    width: 120%;
-    float: right;
-    height: 15px;
-    margin: 10px;
-    
-}
-p{
-    
-    float: left;
-    margin: 0;
-}
-#idcontacto, #txtPrimerNombre, #txtSegundoNombre, #txtPrimerApellido, #txtSegundoApellido, #txtDireccion, #txtTelefono{
-    float: right;
-    width: 80%;
-    height: 20px;
-}
-hr{
-    height: 10%;
-    width: 100%;
-}
-#guardar{
-    float: right;
-    width: 20%;
 }
 #izquierda{
-    background-color: silver;
-    min-height: 70%;
+    border: 2px solid #66665e;
+    float: left;
     height: auto;
     width: 30%;
     padding: 1%;
-    border-radius: 15px 15px 15px 15px;
-    margin-right: -10%;
 }
-#botones{
-    background-color: silver;
-    height: 100px;
-    width: 30%;
-    padding: 1%;
-    border-radius: 15px 15px 15px 15px;
-    margin-right: -10%;
-    margin-top: 1%;
-}
-#botonesstyle{
-    float: right;
-    width: 80%;
-    height: 20px;
-    margin-right: 10%;
-    
-    
-    
-}
-/*button{
-    margin-left: 9%;
-    margin-top: 3%;
-    height: 80px;
-    width: 20%;
-    float: left;
-    background-color: tomato;
-    border: 0;
-}*/
-
 .listas{
-    background-color: #7F8C8D;
+    border: 2px solid #66665e;
     height: 70px;
     width: 100%;
-    border-radius: 15px 15px 15px 15px;
-    margin-bottom: 10px;
-}
-.mini{
-    height: 50px;
-    width: 50px;
-    margin: 10px;
-    float: left;
-}
-.ps{
-    float: left;
-    margin: 10px;
-    margin-top: 20px;
-    margin-bottom: auto;
+    margin-bottom: 5%;
 }

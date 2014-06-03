@@ -1,0 +1,59 @@
+#formularioc{
+    border-bottom: 2px solid #66665e;
+  alignment-adjust: central;
+  float: none;
+  height: auto;
+  padding: 4%;
+  display: none;
+  
+}
+#lbelrol{
+    margin-left: 3%;
+}
+#btnVCrearr{
+    margin-right: 2%;
+}
+#btnVcrearr{
+    margin-right: 2%;
+}
+#formulario{
+   margin-top: 5%; 
+  float: right;
+  width: 95%;
+  height: auto;
+  padding: 1%;
+}
+#Nombrerol{
+  width: 50%;  
+}
+#btnCrearu, #btnCancelaru{
+    margin-top: 2%;
+}
+#btnCrearu{
+    margin-left: 77%;
+}
+#btnVCrearr, #btnVCancelarr{
+    margin-top: 5%;
+}
+#btnConsultar{
+    float: right;
+    margin-right: 4%;
+}
+#correo, #contrasena, #contrasena2{
+    margin-left: 5%;
+    margin-bottom: 2%;
+}
+#buscar{
+    float: right;
+}
+#idrol, #idempleado{
+    margin-right: 2%;
+}
+table{ 
+    border-collapse: separate;
+   border-spacing: 2px;
+   background-color: #66665e;
+width: 100%;
+height:auto;
+}
+

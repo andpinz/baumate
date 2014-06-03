@@ -46,6 +46,7 @@
                         <li class='has-sub'><a href=''><span>Usuario</span></a>
                             <ul>
                                 <li class='has-sub'><a href='consultarusuario.jsp'><span>Buscar Usuario</span></a>
+                                <li class='has-sub'><a href='gestionarusuario.jsp'><span>Gestionar Usuario</span></a>
                                 <li class='has-sub'><a href='modificarestado.jsp'><span>Inactivar/Activar Usuario</span></a>
                                 <li class='has-sub'><a href='modificarusuario.jsp'><span>Modificar Usuario</span></a>
                                 <li class='has-sub'><a href='nuevousuario.jsp'><span>Nuevo Usuario</span></a>
@@ -60,10 +61,10 @@
                 <li class='has-sub'><a href='#'><span>Cliente</span></a>
                     <ul>
                         <li class='has-sub'><a href='ConsultarCliente.jsp'><span>Buscar Cliente</span></a>
+                        <li class='has-sub'><a href='GestionarCliente.jsp'><span>Gestionar Cliente</span></a>
                         <li class='has-sub'><a href='EliminarCliente.jsp'><span>Eliminar Cliente</span></a>
                         <li class='has-sub'><a href='ActualizarCliente.jsp'><span>Modificar Cliente</span></a>
                         <li class='has-sub'><a href='CrearCliente.jsp'><span>Nuevo Cliente</span></a>
-                        <li class='has-sub'><a href='GestionarCliente.jsp'><span>Nuevo Cliente</span></a>
                         </li>
                     </ul>
                 </li>

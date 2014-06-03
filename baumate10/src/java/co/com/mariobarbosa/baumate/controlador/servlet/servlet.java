@@ -755,12 +755,11 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
     private void modificoestadoUsuario(HttpServletRequest request, HttpServletResponse response, PrintWriter out) {
         int estado = Integer.parseInt(request.getParameter("estado"));
         int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-
         int modificacion = -1;
         try {
             UsuarioVo users = new UsuarioVo();
             users.setIdUsuario(idUsuario);
-            users.setEstado(estado);
+            users.setEstado(estado);    
             modificacion = new UsuarioDao().modificoEstadoUsuario(users);
         } catch (Exception e) {
             e.printStackTrace();
