@@ -5,6 +5,9 @@
         $('#btnCancelaru').on('click',Cancelar);
         $('#btnCrear').on('click',divCrear);
         $('#btnCrearu').on('click',crearUsuario);
+        $('#btnVcrearr').on('click', abrirVenta);
+        $('#btnVCancelarr').on('click', cerrarVentana);
+        $('#btnVCrearr').on('click', crearRol);
         
                 function Cancelar(){
         $.ajax({
@@ -12,12 +15,17 @@
             'error':error,
             'success': function(data) {
                 document.getElementById("buscar").value="";
+                document.getElementById("contrasena").value="";
+                document.getElementById("contrasena2").value="";
+                document.getElementById("correo").value="";
                 var formularioc = document.getElementById("formularioc");
                 formularioc.style.display='none';
         var formularioc = document.getElementById("btnCrear");
         formularioc.style.display='';
         var formularioc = document.getElementById("btnCancelar");
         formularioc.style.display='';
+        document.getElementById("idrol").innerHTML = "" ;
+        document.getElementById("idempleado").innerHTML = ""; 
                 listarusuarios();
             }
         });
@@ -46,12 +54,14 @@
         var idrol=$('#idrol').val();
         var estado=$('#estado').val();
         var idempleado=$('#idempleado').val();
-        if (contrasena=="Contraseña"&&contrasena2=="Confirmar contraseña"){
-            alertify.error("<b>Error-campos obligatorios:</b><br>Contraseña y Confirmar contraseña son campos obligatorios.");
-        }else if(contrasena2=="Confirmar contraseña"){
+        if (contrasena==""&&contrasena2==""&&correo==""){
+            alertify.error("<b>Error-campos obligatorios:</b><br>Contraseña, Confirmar contraseña y Correo son campos obligatorios.");
+        }else if(contrasena2==""){
             alertify.log("Por favor confirme su contraseña.");
-        }else if(contrasena=="Contraseña"){
+        }else if(contrasena==""){
             alertify.log("Por favor ingrese una contraseña.");
+        }else if(correo==""){
+            alertify.log("Por favor ingrese un correo.");
         }else if(contrasena2!=contrasena){
             alertify.log("Las contraseñas no coinciden, por favor verifiquelas e intente de nuevo.");
         }else{
@@ -68,10 +78,14 @@
                     'error':error,
                     'success': function (data){
                         if(data==1){
-                            alertify.ok("El usuario fue creado correctamente.");
-                            setTimeout("location.href='nuevousuario.jsp'", 1000);
+                            alertify.success("El usuario fue creado correctamente.");
+                            document.getElementById("contrasena").value="";
+                            document.getElementById("contrasena2").value="";
+                            document.getElementById("contrasena2").value="";
+                            document.getElementById("tblUsuario").value="";
+                            listarusuarios();
                         }else{
-                            alertify.error("<b>Error-usraio no creado:</b><br>No se pudo crear el usuario, por favor verifique la informacion e intente de nuevo.");
+                            alertify.error("<b>Error-usuario no creado:</b><br>No se pudo crear el usuario, por favor verifique la informacion e intente de nuevo.");
                         }
                     }
                 });
@@ -233,11 +247,48 @@
                         var op = $('<option>').text(item.primernombre+" "+item.segundonombre+" "+item.primerapellido+" "+item.segundoapellido);
                         op.attr('value',item.idempleado);
                         lista.append(op);
-                        ingresoRol();
             }); 
+                        ingresoRol();
                 }
             });
         
+    }
+    function abrirVenta() {
+        document.getElementById("idrol").innerHTML = "" ;
+        document.getElementById("idempleado").innerHTML = "";
+        var type = $(this).attr('data-type');
+        $('#winRol').fadeIn(function() {
+            window.setTimeout(function() {
+                $('.window-container.' + type).addClass('window-container-visible');
+            }, 100);
+        });
+    }
+    
+    function cerrarVentana() {
+        ingresoEmpleado();
+        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+        $('#txtVenta').val('');
+        //listarCiudades();
+    }
+    
+    function crearRol(){
+        var nombrerol=$('#Nombrerol').val();
+                $.ajax({
+                    'url':'nuevorol',
+                    'data':{
+                        'nombrerol':nombrerol
+                    },
+                    'type':'POST',
+                    'error':error,
+                    'success': function (data){
+                        if(data==1){
+                            alertify.success("El rol a sido creado.");
+                            cerrarVentana();
+                        }else{
+                            alertify.error("<b>Error-rol no creado:</b><br>el rol no ha podido ser creado, por favor intente de nuevo.");
+                        }
+                    }
+                });
     }
 
     function error(error){

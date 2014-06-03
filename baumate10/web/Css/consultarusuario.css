@@ -1,28 +1,39 @@
-#contenedor{
-    margin:0 auto 0 auto;
-    background-color: #ffffff;
-  margin-top: 5%;
-  width: 90%;
-  height: auto;
-  padding: 25px 25px;
-  overflow: auto;
-  outline: none;
--moz-box-shadow: 5px 6px 20px #000000;
--webkit-box-shadow: 5px 6px 20px #000000;
-box-shadow: 5px 6px 20px #000000;
-}
 #formularioc{
+    border-bottom: 2px solid #66665e;
   alignment-adjust: central;
   float: none;
   height: auto;
-  padding: 2%;
+  padding: 4%;
   display: none;
+  
+}
+#lbelrol{
+    margin-left: 3%;
+}
+#btnVCrearr{
+    margin-right: 2%;
+}
+#btnVcrearr{
+    margin-right: 2%;
 }
 #formulario{
+   margin-top: 5%; 
   float: right;
   width: 95%;
   height: auto;
   padding: 1%;
+}
+#Nombrerol{
+  width: 50%;  
+}
+#btnCrearu, #btnCancelaru{
+    margin-top: 2%;
+}
+#btnCrearu{
+    margin-left: 77%;
+}
+#btnVCrearr, #btnVCancelarr{
+    margin-top: 5%;
 }
 #btnConsultar{
     float: right;

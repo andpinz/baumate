@@ -10,6 +10,19 @@ font-weight: bold;
 	padding: 1%;
 	font-family: 'Open Sans', Helvetica, sans-serif;
 }
+#contenedor{
+    margin:0 auto 0 auto;
+    background-color: #ffffff;
+  margin-top: 5%;
+  width: 90%;
+  height: auto;
+  padding: 25px 25px;
+  overflow: auto;
+  outline: none;
+-moz-box-shadow: 5px 6px 20px #000000;
+-webkit-box-shadow: 5px 6px 20px #000000;
+box-shadow: 5px 6px 20px #000000;
+}
 #titulo{
     text-align: center;
   width: auto;

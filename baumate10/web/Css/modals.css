@@ -16,10 +16,12 @@
 }
 
 .window-container {
+    text-align: center;
+    height: auto;
     display: block;
     background: #fcfcfc;
     margin: 15em auto;
-    width: auto;
+    width: 30%;
     padding: 10px 20px 20px;
     text-align: left;
     z-index: 3;
