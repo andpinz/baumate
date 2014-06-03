@@ -1,20 +1,49 @@
 #derecha{
-    border: 2px solid #66665e;
     height: auto;
-    width: 65%;
-    padding: 1%;
+    width: 60%;
+    padding: 2%;
     float: right;
 }
 #izquierda{
-    border: 2px solid #66665e;
     float: left;
     height: auto;
     width: 30%;
     padding: 1%;
 }
 .listas{
-    border: 2px solid #66665e;
+    text-align: center;
     height: 70px;
     width: 100%;
     margin-bottom: 5%;
+    color: #ffffff;
+  background: #7F7F7F;
 }
+#idcontacto{
+width: 45%;
+}
+#txtPrimerNombre, #txtSegundoNombre, #txtPrimerApellido, #txtSegundoApellido{
+    margin-top: 3%;
+width: 45%;
+}
+#documento{
+    margin-left: 2%;
+}
+#telefono{
+    margin-left: 2%;
+}
+#txtDireccion, #txtTelefono{
+    margin-top: 3%;
+    width: 35%;
+}
+#add, #edi, #del{
+    margin-top: 3%;
+}
+#add{
+    margin-left: 63%;
+}
+/*#segundonombre{
+    margin-left: 1%;
+}*/
+/*#primernombre{
+    margin-left: 7%;
+}*/
