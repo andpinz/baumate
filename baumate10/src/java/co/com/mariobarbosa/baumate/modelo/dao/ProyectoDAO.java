@@ -26,7 +26,7 @@ public class ProyectoDAO extends Conexion{
         int respuesta = -1;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("update proyecto set nombre=?,idciudad=?,fechainicio=?,fechafinal=?,direccion=?,estado=?,ganancias=?, totalPresupuesto=? where idproyecto=?");
+            PreparedStatement sentencia = conectar.prepareStatement("update proyecto set nombre=?,idciudad=?,fechainicio=?,fechafinal=?,direccion=?,estado=?,ganancias=?, totalPresupuesto=?,idventa=? where idproyecto=?");
             
             sentencia.setString(1, data.getNombre());
             sentencia.setInt(2, data.getIdciudad().getIdciudad());
@@ -37,7 +37,7 @@ public class ProyectoDAO extends Conexion{
             sentencia.setDouble(7, data.getGanancias());
             sentencia.setDouble(8, data.getTotalPresupuesto());
             sentencia.setInt(9, data.getIdproyecto());
-            
+            sentencia.setInt(10, data.getIdventa().getIdventa());
             respuesta = sentencia.executeUpdate();
             
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class ProyectoDAO extends Conexion{
         int respuesta = -1;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("INSERT INTO proyecto(Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto) VALUES (?,?,?,?,?,?,?,?)");
+            PreparedStatement sentencia = conectar.prepareStatement("INSERT INTO proyecto(Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idventa) VALUES (?,?,?,?,?,?,?,?,?)");
             
             //sentencia.setInt(1, data.getIdproyecto());
             sentencia.setString(1, data.getNombre());
@@ -81,6 +81,7 @@ public class ProyectoDAO extends Conexion{
             sentencia.setInt(6, data.getEstado());
             sentencia.setDouble(7, data.getGanancias());
             sentencia.setDouble(8, data.getTotalPresupuesto());
+            sentencia.setInt(9, data.getIdventa().getIdventa());
             
             respuesta = sentencia.executeUpdate();
             
@@ -98,7 +99,7 @@ public class ProyectoDAO extends Conexion{
         ProyectoVO proyecto = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado FROM proyecto where estado=1");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado,idventa FROM proyecto where estado=1");
                         
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
@@ -112,6 +113,7 @@ public class ProyectoDAO extends Conexion{
                 proyecto.setEstado(res.getInt("estado"));
                 proyecto.setGanancias(res.getDouble("ganancias"));
                 proyecto.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                proyecto.setIdventa(new VentaDAO().consultar(res.getInt("idventa")));
                 //proyecto.setIdempleado();
                 respuesta.add(proyecto);
             }
@@ -144,6 +146,7 @@ public class ProyectoDAO extends Conexion{
                 proyecto.setEstado(res.getInt("estado"));
                 proyecto.setGanancias(res.getDouble("ganancias"));
                 proyecto.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                proyecto.setIdventa(new VentaDAO().consultar(res.getInt("idventa")));
                 //proyecto.setIdempleado();
                 respuesta.add(proyecto);
             }
@@ -161,7 +164,7 @@ public class ProyectoDAO extends Conexion{
         ProyectoVO respuesta = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado FROM proyecto where idproyecto=? and estado=1");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado,idventa FROM proyecto where idproyecto=? and estado=1");
             sentencia.setInt(1, id);
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
@@ -175,6 +178,7 @@ public class ProyectoDAO extends Conexion{
                 respuesta.setEstado(res.getInt("estado"));
                 respuesta.setGanancias(res.getDouble("ganancias"));
                 respuesta.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                respuesta.setIdventa(new VentaDAO().consultar(res.getInt("idventa")));
                 //proyecto.setIdempleado();
             }
             
@@ -208,6 +212,7 @@ public class ProyectoDAO extends Conexion{
                 respuesta.setEstado(res.getInt("estado"));
                 respuesta.setGanancias(res.getDouble("ganancias"));
                 respuesta.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                respuesta.setIdventa(new VentaDAO().consultar(res.getInt("idventa")));
                 //proyecto.setIdempleado();
                  lista.add(respuesta);
             }
@@ -225,7 +230,7 @@ public class ProyectoDAO extends Conexion{
         ProyectoVO respuesta = null;
         try {
             conectar();
-            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado FROM proyecto where estado=1 order by idproyecto desc Limit 1");
+            PreparedStatement sentencia = conectar.prepareStatement("SELECT idproyecto,Nombre,idciudad,fechainicio,fechafinal,direccion,estado,ganancias,totalPresupuesto,idempleado,idventa FROM proyecto where estado=1 order by idproyecto desc Limit 1");
             ResultSet res = sentencia.executeQuery();
             while (res.next()) {
                 respuesta = new ProyectoVO();
@@ -238,6 +243,7 @@ public class ProyectoDAO extends Conexion{
                 respuesta.setEstado(res.getInt("estado"));
                 respuesta.setGanancias(res.getDouble("ganancias"));
                 respuesta.setTotalPresupuesto(res.getDouble("totalPresupuesto"));
+                respuesta.setIdventa(new VentaDAO().consultar(res.getInt("idventa")));
                 //proyecto.setIdempleado();
             }
             

@@ -1783,7 +1783,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         String direccion = request.getParameter("direccion");
         String ganancia = request.getParameter("ganancia");
         String presupuesto = request.getParameter("presupuesto");
-        String idempleado = request.getParameter("idempleado");
+        String idventa = request.getParameter("idventa");
         
         String arract = request.getParameter("actividades");
         int resp = -1;
@@ -1800,6 +1800,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             //proyect.setIdempleado(idempleado);
             proyect.setNombre(nombre);
             proyect.setTotalPresupuesto(Double.parseDouble(presupuesto));
+            proyect.setIdventa(new VentaDAO().consultar(Integer.parseInt(idventa)));
             
             resp = new ProyectoDAO().modificar(proyect);
             
@@ -1852,7 +1853,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
         String direccion = request.getParameter("direccion");
         String ganancia = request.getParameter("ganancia");
         String presupuesto = request.getParameter("presupuesto");
-        String idempleado = request.getParameter("idempleado");
+        String idventa = request.getParameter("idventa");
         String arract = request.getParameter("actividades");
         int resp = -1;
         
@@ -1867,6 +1868,7 @@ private void nuevoRol (HttpServletRequest request, HttpServletResponse response,
             //proyect.setIdempleado(idempleado);
             proyect.setNombre(nombre);
             proyect.setTotalPresupuesto(Double.parseDouble(presupuesto));
+            proyect.setIdventa(new VentaDAO().consultar(Integer.parseInt(idventa)));
             
             resp = new ProyectoDAO().insertar(proyect);
             if (! (arract.equals("") && resp > 0)) {
