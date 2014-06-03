@@ -23,6 +23,7 @@ public class ProyectoVO {
     private double totalPresupuesto;
     private double proyectocol;
     private EmpleadoVO idempleado;
+    private VentaVO idventa;
 
     /**
      * @return the idproyecto
@@ -176,6 +177,20 @@ public class ProyectoVO {
      */
     public void setIdempleado(EmpleadoVO idempleado) {
         this.idempleado = idempleado;
+    }
+
+    /**
+     * @return the idventa
+     */
+    public VentaVO getIdventa() {
+        return idventa;
+    }
+
+    /**
+     * @param idventa the idventa to set
+     */
+    public void setIdventa(VentaVO idventa) {
+        this.idventa = idventa;
     }
 
   

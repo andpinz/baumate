@@ -40,15 +40,18 @@
                         </div>
                         Venta
                         <input id="hdidventa" type="hidden">
-                        <label id="txtVenta"></label>
+                        <label id="lblVentaSel"></label>
                         <input id="btnAddVenta" value="+" type="button" data-type="zoomin">
                         <div class="overlay-container" id="winVenta">
                             <div class="window-container zoomin" >
-                                <p>Numero de Registro de la Venta:</p>
+                                Numero de Registro de la Venta:
                                 <input name="txtVenta" type="text" id="txtVenta" lbl="lblVenta">
                                 <label id="lblVenta" class="lblestil"></label><br>
-                                <input type="button" id="btnGuardarVenta" value="Guardar">
+                                Tipo de venta:
+                                <select id="tipVent"></select>
+                                <input type="button" id="btnBuscarVenta" value="Buscar">
                                 <input type="button" value="cancelar" id="btnCancelarVenta" />
+                                <table id="tblventa"></table>
                             </div>
                         </div>
                         <br>

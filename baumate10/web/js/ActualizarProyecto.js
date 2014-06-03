@@ -20,6 +20,87 @@
     insertores();
     init2();
 
+    $('#btnBuscarVenta').on('click', buscarVenta);
+    insertores();
+    listarTipoVenta();
+    function listarTipoVenta() {
+        $.ajax({
+            'url': 'listaridentiventa',
+            'type': 'POST',
+            'error': error,
+            'success': function(data) {
+                data = $(JSON.parse(data))
+                var content = $('#tipVent');
+                content.html('');
+                data.each(function(i, item) {
+                    var d2 = $('<option>').text(item.tipoidentificacionventa);
+                    d2.attr('value', item.ididentificacionventa);
+                    content.append(d2);
+                });
+            }
+        });
+    }
+    function buscarVenta() {
+        $.ajax({
+            'url': 'buscarventa',
+            'data': {
+                'tipoventa': $('#txtVenta').val(),
+                'identificacion': $('#tipVent').val()
+            },
+            'type': 'POST',
+            'error': error,
+            'success': function(data) {
+                data = $(JSON.parse(data));
+                var content = $('#tblventa');
+                content.html('');
+                var tr = $('<tr>');
+                var td = $('<td>').text('Numero de Registro');
+                tr.append(td);
+                var td = $('<td>').text('tipo de identificacion venta');
+                tr.append(td);
+                var td = $('<td>').text('fecha ');
+                tr.append(td);
+                var td = $('<td>').text('Nombre del cliente');
+                tr.append(td);
+                var td = $('<td>').text('Valor');
+                tr.append(td);
+                var td = $('<td>').text('Cargar');
+                tr.append(td);
+                content.append(tr);
+                data.each(function(i, item) {
+                    var tr = $('<tr>');
+                    var td = $('<td>').text(item.identificacion);
+                    tr.append(td);
+                    var td = $('<td>').text(item.tipoventa.tipoidentificacionventa);
+                    tr.append(td);
+                    var td = $('<td>').text(item.fecha);
+                    tr.append(td);
+                    var td = $('<td>').text(item.idcliente.primerNombre + ' ' + item.idcliente.SegundoNombre + ' ' + item.idcliente.PrimerApellido + ' ' + item.idcliente.SegundoApellido);
+                    tr.append(td);
+                    var td = $('<td>').text(item.valor);
+                    tr.append(td);
+                    var td = $('<td>');
+                    var input = $('<input>').attr('id', 'btnSelVent'+i).attr('type', 'button')
+                            .attr('vl', item.idventa)
+                            .attr('vlvent', item.valor)
+                            .attr('iden', item.identificacion)
+                            .attr('tipven', item.tipoventa.tipoidentificacionventa)
+                            .on('click', selectVenta).val('→');
+                    td.append(input);
+                    tr.append(td);
+
+                    content.append(td);
+                });
+            }
+        });
+    }
+    function selectVenta(){
+        $('#hdidventa').val($(this).attr('vl'));
+        $('#lblVentaSel').val($(this).attr('iden') + ' ' + $(this).attr('tipven'));
+        $('#txtPresupuesto').val($(this).attr('vlvent'));
+        $('.overlay-container').fadeOut().end().find('.window-container').removeClass('window-container-visible');
+    }
+    
     function consultarActividades(str) {
         $.ajax({
             'url': 'buscaractividad',
@@ -467,7 +548,7 @@
                 'direccion': $('#txtDireccion').val(),
                 'ganancia': 0, //$('#txtGanancias').val(),
                 'presupuesto': $('#txtPresupuesto').val(),
-//                'idempleado':$('#txtIdEmpleado').val()
+                'idventa': $('#hdidventa').val(),
                 'actividades': JSON.stringify(arregloActividades())
             },
             'type': 'POST',
