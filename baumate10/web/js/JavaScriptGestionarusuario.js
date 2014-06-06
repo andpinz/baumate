@@ -5,6 +5,7 @@
         $('#btnCancelaru').on('click',Cancelar);
         $('#btnCrear').on('click',divCrear);
         $('#btnCrearu').on('click',crearUsuario);
+        $('#btnModificaru').on('click',modificoUsuario);
         $('#btnVcrearr').on('click', abrirVenta);
         $('#btnVCancelarr').on('click', cerrarVentana);
         $('#btnVCrearr').on('click', crearRol);
@@ -43,6 +44,26 @@
         var formularioc = document.getElementById("btnCancelar");
         formularioc.style.display='none';
         ingresoEmpleado();
+            }
+        });
+    }
+    
+                function divModificar(){
+        $.ajax({
+            'type':'POST',
+            'error':error,
+            'success': function(data) {
+        var formularioc = document.getElementById("formularioc");
+        formularioc.style.display='block';
+        var formularioc = document.getElementById("btnCrear");
+        formularioc.style.display='none';
+        var formularioc = document.getElementById("btnCancelar");
+        formularioc.style.display='none';
+        var formularioc = document.getElementById("btnCrearu");
+        formularioc.style.display='none';
+        var formularioc = document.getElementById("idempleado");
+        formularioc.style.display='none';
+        ingresoRol();
             }
         });
     }
@@ -117,6 +138,11 @@
                 data.each(function(i,item){                                        
                     var d2 = $('<tr>');
                     var td = $('<td>').text(item.correo);
+                    var h = $('<input>');
+                    h.attr('type', 'hidden');
+                    h.attr('id', 'Correo' + i);
+                    h.attr('vl', item.correo);
+                    td.append(h);
                     d2.append(td);
                     td = $('<td>').text(item.rol.nombrerol);
                     d2.append(td);
@@ -137,7 +163,7 @@
                     tdi.attr('type', 'button');
                     tdi.attr('value', 'Modificar');
                     tdi.attr('id', 'modificar' + i);
-                    tdi.attr('vl', item.correo);
+                    tdi.attr('vl', item.idUsuario);
                     td.append(tdi);
                     d2.append(td);
                     td = $('<td>');
@@ -157,9 +183,37 @@
 //                    $('#modificar' + i).on('click', tablaModificar);
                     $('#activar' + i).on('click', modificoEstadoUsuarioa);
                     $('#inactivar' + i).on('click', modificoEstadoUsuarioi);
+                    $('#modificar' + i).on('click', divModificar);
                 });
             }
         });
+    }
+    
+    function modificoUsuario(){  
+        var idUsuario = $(this).attr('vl');
+        $('modificar').val(idUsuario);
+        var correo = $(this).attr('vl');
+        $('Correo').val(correo);
+        var contrasena=$('#contrasena').val();
+        var idrol=$('#idrol').val();
+                $.ajax({
+                    'url':'modificarusuario',
+                    'data':{
+                        'correo':correo,
+                        'contrasena':contrasena,
+                        'idUsuario':idUsuario,
+                        'idrol':idrol
+                    },
+                    'type':'POST',
+                    'error':error,
+                    'success': function (data){
+                        if(data==1){
+                            alertify.success("El usuario fue modificado correctamente");
+                        }else{
+                            alertify.error("Error-uusario no modificado:no se pudo modificar el usuario, por favor verifique la informacion e intente de nuevo");
+                        }
+                    }
+                });
     }
     
         function buscarUsuario(){
@@ -311,6 +365,24 @@
             'success':function(data){
                 data = $(JSON.parse(data));
                 var lista=$('#idrol');
+                data.each(function(i,item){
+                        var op = $('<option>').text(item.nombrerol);
+                        op.attr('value',item.idrol);
+                        lista.append(op);
+            }); 
+                }
+            });
+        
+    }
+    
+    function ingresoRol2(){
+        $.ajax({
+            'url':'ingresarrol',
+            'type':'POST',
+            'error':error,
+            'success':function(data){
+                data = $(JSON.parse(data));
+                var lista=$('#idrol2');
                 data.each(function(i,item){
                         var op = $('<option>').text(item.nombrerol);
                         op.attr('value',item.idrol);

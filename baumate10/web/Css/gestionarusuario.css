@@ -7,6 +7,15 @@
   display: none;
   
 }
+#formulariom{
+    border-bottom: 2px solid #66665e;
+  alignment-adjust: central;
+  float: none;
+  height: auto;
+  padding: 4%;
+  display: none;
+  
+}
 #lbelrol{
     margin-left: 3%;
 }

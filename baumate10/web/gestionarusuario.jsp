@@ -34,6 +34,7 @@
                             </div>
                         </div>
                 <label>Usuario de empleado:</label><select  id="idempleado"></select>
+                <input type="button" id="btnModificaru" value="Modificar Usuario" >
                 <input type="button" id="btnCrearu" value="Crear Usuario" >
             <input type="button" id="btnCancelaru" value="Cancelar" >
             </div>
